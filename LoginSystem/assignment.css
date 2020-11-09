@@ -38,6 +38,12 @@ font-size: 16px;
 border-radius: 5px;
 border: 1px solid gray;
 }
+.radiobutton {
+width: 100px; 
+margin: 0 auto;
+  text-align:left;
+  font-size:18px
+}
 .btn {
 padding: 10px;
 font-size: 15px;

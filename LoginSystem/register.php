@@ -34,7 +34,7 @@ if ($result) {
     }
     $sql="INSERT INTO Login (Username, Password, Email)". " VALUES ('$username','$password','$email')";
     if(mysqli_query($db, $sql)){
-        echo "Records inserted successfully.";
+        header("Location: userdata.php");
     } else{
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
     }
