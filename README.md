@@ -1,2 +1,2 @@
-# CPS530_FinalProject
-Only Friends: A friend matchmaking website.
+Only Friends
+A friend matchmaking website.
