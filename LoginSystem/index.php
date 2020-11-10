@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +26,7 @@
 <br><br><br>
 <div class=corners1>
 	<h2>Register</h2>		
-    <?php
+	<?php
 	$db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
 	if ($db -> connect_error) {
 		echo ("Failed to connect to MySQL: " . $db -> connect_error);

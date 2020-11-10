@@ -1,4 +1,8 @@
 <?php
+session_start();
+?>
+<?php
+$_SESSION['username'] = $_POST['username'];
 $db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
 if ($db -> connect_error) {
     echo ("Failed to connect to MySQL: " . $db -> connect_error);

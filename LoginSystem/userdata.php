@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,14 +11,14 @@
 <br><br><br>
 <div class="corners1" style="height:730px">
 	<h1>Create Account</h1>		
-	<form name="form" method="post" action="https://www.youtube.com/" onsubmit="return validateForm()">
+	<form name="form" method="post" action="reguserdata.php" onsubmit="return validateForm()">
         <h2>My first name is...</h2>
         <div class="input-group">
         <input type="name" name="name" required>
         </div>
         <h2>I am from...</h2>
         <div class="input-group">
-            <form action="/action_page.php">
+            <form>
                 <select id="city" name="city" required>
                   <option value="" selected disabled hidden>Choose here</option>
                   <option value="44.3894|79.6903">Barrie</option>
