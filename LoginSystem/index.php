@@ -13,6 +13,7 @@ session_start();
 		var div = document.getElementById('pw');
 		if (pass1!==pass2){
 				div.innerHTML = "Password: Password does not match"
+				div.style.color = "red"
 				return false;
 		}
 		else{

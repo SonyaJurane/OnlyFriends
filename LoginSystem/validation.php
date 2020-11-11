@@ -14,7 +14,7 @@ if ($result) {
         $name = $row[0];
         $pass = $row[1];
         if ($name==$username and $password == $pass) {
-            header("Location: https://www.youtube.com/");
+            header("Location: profile.php");
             mysqli_close($db);
             exit();
         }
