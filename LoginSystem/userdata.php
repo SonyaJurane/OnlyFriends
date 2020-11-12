@@ -5,16 +5,18 @@ session_start();
 <html>
 <head>
 	<title>Personal Information</title>
-	<link rel="stylesheet" href="assignment.css">
+    <link rel="stylesheet" href="assignment.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="nameverify.js"></script>
 </head>
 <body>
 <br><br><br>
 <div class="corners1" style="height:730px">
 	<h1>Create Account</h1>		
-	<form name="form" method="post" action="reguserdata.php" onsubmit="return validateForm()">
+	<form name="form" method="post" action="reguserdata.php" onsubmit="return validateForm(event)">
         <h2>My first name is...</h2>
         <div class="input-group">
-        <input type="name" name="name" required>
+        <input id="name" type="name" name="name" required>
         </div>
         <h2>I am from...</h2>
         <div class="input-group">

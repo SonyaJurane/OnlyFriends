@@ -43,6 +43,9 @@ $Name = $row[4];
 $Gender = $row[5];
 $PFP = $row[8];
 $Age = $row[9];
+$maxdistance = $row[10];
+$maxage = $row[11];
+$interests = $row[12];
 echo "<br>";
 //profile picture
 if ($PFP == 'defaultpic.png'){
@@ -61,15 +64,25 @@ echo '<table style = "border: 1px solid black;font-size: 32px;	text-align: cente
   <input type="submit" value="Upload Image" name="submit">
 </form>
 <?php
-echo '<tr>
+echo '<br><br><tr>
 <td><b><u>Likes</u></b></td>
 <td><b><u>Age</u></b></td>
 <td><b><u>Gender</u></b></td>
 </tr>';
 echo '<tr>
-<td>POG</td>
+<td>'.ucfirst($interests).'</td>
 <td>'.$Age.'</td>
-<td>'.$Gender.'</td>
+<td>'.ucfirst($Gender).'</td>
+</tr>';
+echo '<tr>
+<td><b><u>Maximum Distance</u></b></td>
+<td> </td>
+<td><b><u>Maximum Age</u></b></td>
+</tr>';
+echo '<tr>
+<td>'.$maxdistance.' km </td>
+<td> </td>
+<td>'.$maxage.'</td>
 </tr>
 </table>';
 

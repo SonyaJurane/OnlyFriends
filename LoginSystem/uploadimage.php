@@ -27,7 +27,11 @@ if (file_exists($target_file)) {
 }
 
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 800000) {
+  echo "<script type='text/javascript'>
+  alert('Sorry, your file is too large.');
+  window.location.href = '/profile.php'; 
+  </script>";
   $uploadOk = 0;
 }
 
@@ -46,6 +50,7 @@ if ($uploadOk == 0) {
     if(mysqli_query($db, $sql)){
         header("Location: profile.php");
     } else{
+        header("Location: profile.php");
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
     }
         mysqli_close($db);
