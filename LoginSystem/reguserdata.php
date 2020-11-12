@@ -16,7 +16,9 @@ $findgender = $_POST['findgender'];
 
 $sql="UPDATE Login SET Names='$name', Gender='$gender', Preference='$findgender', City='$city' WHERE Username='$username'";
 if(mysqli_query($db, $sql)){
-    header("Location: userdata.php");
+    header("Location: login.php");
+    mysqli_close($db);
+    exit();
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
 }
