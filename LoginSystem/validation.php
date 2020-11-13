@@ -1,4 +1,5 @@
 <?php
+session_start();
 $db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
 if ($db -> connect_error) {
     echo ("Failed to connect to MySQL: " . $db -> connect_error);
@@ -6,6 +7,7 @@ if ($db -> connect_error) {
 }
 
 $username = $_POST['username'];
+$_SESSION['username'] = $username;
 $password = $_POST['password'];
 $commandText = "SELECT Username, Password FROM Login";
 $result = $db->query($commandText);
