@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chat</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        var from=null, start = 0, url = "https://onlyfriendspage.000webhostapp.com/chat/chat.php";
+        $(document).ready(function(){
+            from = prompt("Please enter your name")
+            //load() UNCOMMENT IF WANT INSTANT MESSAGING ON PAID SERVERS
+            //COMMENT BELOW THIS OUT IF WANT INSTANT MESSAGING
+            setInterval(function () {
+            load();
+            },10000000000000000000); //I just put a stupid high number here so it wont lock us out of database
+            //}, 500);
+           //COMMENT ABOVE THIS OUT IF WANT INSTANT MESSAGING
+            $('form').submit(function(e){
+                $.post(url, {message: $('#message').val(),
+                from: from
+                });
+                $('#message').val("")
+                return false;
+            }) 
+        });
+
+        function load(){
+            $.get(url + '?start=' +start, function(result){
+                if(result.items){
+                    result.items.forEach(item =>{
+                        start = item.id;
+                        $('#messages').append(renderMessage(item));
+                    });
+                    $('#messages').animate({scrollTop: $('#messages')[0].scrollHeight});
+                };
+                //load(); UNCOMMENT IF WANT INSTANT MESSAGING ON PAID SERVERS
+            });
+        }
+
+        function renderMessage(item){
+            let time = new Date(item.created);
+            time = `${time.getHours()}:$time.getMinutes()}`;
+            return `<div class="msg"><p>${item.from}</p>${item.message}<span>${time}</span></div>`;
+        }
+    </script>
+
+<style>
+    body{
+        margin:0;
+        overflow:hidden;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    #messages{
+        height:88vh;
+        overflow-x:hidden;
+        padding: 10px;
+        background-image:url(bg.png)
+    }
+    form{
+        display:flex
+    }
+    input{
+        font-size:1.2rem;
+        padding:10px;
+        margin: 10px 5px;
+        appearance: none;
+        -webkit-appearance:none;
+        border:1px solid #ccc;
+        border-radius: 5px;
+    }
+    #message{
+        flex: 2
+    }
+    .msg {
+        background-color: #dcf8c6;
+        padding:5px 10px;
+        border-radius: 5px;
+        margin-bottom: 8px;
+        width:fit-content
+    }
+    .msg p{
+        margin:0;
+        font-weight:bold
+    }
+    .msg span{
+        font-size:0.7rem;
+        margin-left:15px
+    }
+</style>
+</head>
+<body>
+    <div id="messages"></div>
+    <form>
+        <input type="text" id="message" autocomplete="off" autofocus placeholder="Type message...">
+        <input type="submit" value="Send">
+    </form>
+</body>
+</html>
