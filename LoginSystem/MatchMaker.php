@@ -24,7 +24,7 @@ $matches = [];
 $commandText = "SELECT * FROM Login WHERE Username NOT LIKE '$name'";
 $result = $db->query($commandText);
 if ($result) {
-    while ($row = mysqli_fetch_row($result)){
+    while ($row == mysqli_fetch_row($result)){
         $rating = 0;
         $Friend = [1,$row];
         $FriendUsername = $row[1];
@@ -36,7 +36,7 @@ if ($result) {
         $FriendMaxage = $row[11];
         
         //gender
-        if ($preference = 'both'){
+        if ($preference == 'both'){
             if($FriendPreference == 'both'){
                 $rating++;
             }else if($FriendPreference == $Gender){
