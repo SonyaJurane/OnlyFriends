@@ -29,8 +29,8 @@ session_start();
 </nav>
 <a href="MatchMaker.php">test matchmaker page</a>;
 <?php
-$name = $_SESSION["username"];
-echo "<title>$name | Profile</title>";
+$username = $_SESSION["username"];
+echo "<title>$username | Profile</title>";
 
 $db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
 if ($db -> connect_error) {
@@ -38,16 +38,17 @@ if ($db -> connect_error) {
     exit();
 }
 
-$prompt = "SELECT * FROM Login WHERE Username LIKE '$name'";
+$prompt = "SELECT * FROM Login WHERE Username LIKE '$username'";
 $data = $db->query($prompt);
 $row = mysqli_fetch_row($data);
 $Name = $row[4];
-$Gender = $row[5];
-$PFP = $row[8];
-$Age = $row[9];
-$maxdistance = $row[10];
-$maxage = $row[11];
-$interests = $row[12];
+$LastName =$row[5];
+$Gender = $row[6];
+$PFP = $row[9];
+$Age = $row[10];
+$maxdistance = $row[11];
+$maxage = $row[12];
+$interests = $row[13];
 echo "<br>";
 //profile picture
 if ($PFP == 'defaultpic.png'){
@@ -55,7 +56,7 @@ if ($PFP == 'defaultpic.png'){
 }
 
 echo "<img src='$PFP' class='rounded-circle' style='display: block; margin-left: auto;margin-right: auto;width:400px;height:400px;border: 2px solid black;'alt='profile'/>";
-echo "<div class='h1' style='text-align:center;'>$name</div>";
+echo "<div class='h1' style='text-align:center;'>$Name $LastName</div>";
 //information table
 echo '<table style = "border: 1px solid black;font-size: 32px;	text-align: center;" width = "1000px" cellpadding="15" border="0" align="center">';
 ?>
@@ -90,4 +91,4 @@ echo '<tr>
 
 ?>
 </body>
-</html> 
+</html>

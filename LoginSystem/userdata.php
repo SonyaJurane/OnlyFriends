@@ -11,12 +11,16 @@ session_start();
 </head>
 <body>
 <br><br><br>
-<div class="corners1" style="height:730px">
+<div class="corners1" style="height:auto; width:750px">
 	<h1>Create Account</h1>		
 	<form name="form" method="post" action="reguserdata.php" onsubmit="return validateForm(event)">
         <h2>My first name is...</h2>
         <div class="input-group">
         <input id="name" type="name" name="name" required>
+        </div>
+        <h2>My Last name is...</h2>
+        <div class="input-group">
+        <input id="lastname" type="lastname" name="lastname" required>
         </div>
         <h2>I am from...</h2>
         <div class="input-group">
@@ -86,15 +90,56 @@ session_start();
         </div>
         <h2>Looking for...</h2>
         <div class="radiobutton"style="width:140px">
-            <input type="radio" id="findmale" name="findgender" value="findmale" required>
+            <input type="radio" id="findmale" name="findgender" value="male" required>
             <label for="findmale">Male Friends</label><br>
-            <input type="radio" id="findfemale" name="findgender" value="findfemale">
+            <input type="radio" id="findfemale" name="findgender" value="female">
             <label for="findfemale">Female Friends</label><br>
-            <input type="radio" id="findboth" name="findgender" value="findboth">
+            <input type="radio" id="findboth" name="findgender" value="both">
             <label for="findboth">Any Friends</label><br>
         </div>
+        <h2>        
+        <div>
+        I am <input type="number" id="age" name="age" min=10 required> years old
+        </div>
+        </h2>
+        <h2>   
+        <div>
+        Looking for someone at most <input type="number" id="maxage" name="maxage" min=10 requiredrequired> years old
+        </div> 
+        <div>
+        Preferably looking for some one less than <input type="number" id="maxdistance" name="maxdistance" min=0 required>Km away
+        </div> 
+        </h2>
+        </h2>
+        <h2>My interests are...</h2>
+        <div>
+        <input type="checkbox" name="interest[]" id="Food" value="Food">
+        <label for="Food">Food</label>
+        <input type="checkbox" name="interest[]" id="Sports" value="Sports"> 
+        <label for="Sports">Sports</label>
+        <input type="checkbox" name="interest[]" id="Anime" value="Anime"> 
+        <label for="Anime">Anime</label>
+        <input type="checkbox" name="interest[]" id="Traveling" value="Traveling"> 
+        <label for="Traveling">Traveling</label>
+        <input type="checkbox" name="interest[]" id="Politics" value="Politics"> 
+        <label for="Politics">Politics</label>
+        <input type="checkbox" name="interest[]" id="Art" value="Art"> 
+        <label for="Art">Art</label>
         <br>
+        <input type="checkbox" name="interest[]" id="Music" value="Music"> 
+        <label for="Music">Music</label>
+        <input type="checkbox" name="interest[]" id="Cooking" value="Cooking"> 
+        <label for="Cooking">Cooking</label>
+        <input type="checkbox" name="interest[]" id="Movies" value="Movies"> 
+        <label for="Movies">Movies</label>
+        <input type="checkbox" name="interest[]" id="Water" value="Water"> 
+        <label for="Water">Water</label>
+        
+        </div>
+        <br>
+        
         <button type="submit" class="btn" name="reg_user">Register</button>
+        
     </form>
     
 </div>

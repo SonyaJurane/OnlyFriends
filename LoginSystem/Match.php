@@ -34,8 +34,6 @@ $order = $_SESSION["order"];
 $rating = $_SESSION["rating"];
 echo $rating;
 echo $order;
-echo sizeof($matches[$rating]);
-print_r($matches);
 $match = $matches[$rating][$order];
 $db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
 if ($db -> connect_error) {
@@ -46,9 +44,9 @@ $prompt = "SELECT * FROM Login WHERE Username LIKE '$match'";
 $data = $db->query($prompt);
 $row = mysqli_fetch_row($data);
 $Name = $row[4];
-$Gender = $row[5];
-$PFP = $row[8];
-$Age = $row[9];
+$Gender = $row[6];
+$PFP = $row[9];
+$Age = $row[10];
 echo "<br>";
 //profile picture
 if ($PFP == 'defaultpic.png'){

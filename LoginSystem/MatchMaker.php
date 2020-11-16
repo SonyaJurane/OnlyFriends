@@ -13,29 +13,29 @@ $prompt = "SELECT * FROM Login WHERE Username LIKE '$name'";
 $data = $db->query($prompt);
 $row = mysqli_fetch_row($data);
 $Username = $row[1];
-$Gender = $row[5];
-$preference = $row[6];
-$city = $row[7];
-$age = $row[9];
-$maxdistance = $row[10];
-$maxage = $row[11];
-$interest = $row[12];
+$Gender = $row[6];
+$preference = $row[7];
+$city = $row[8];
+$age = $row[10];
+$maxdistance = $row[11];
+$maxage = $row[12];
+$interest = $row[13];
 include 'distance.php';
 $matches = [];
 $highestrate = 0;
 $commandText = "SELECT * FROM Login WHERE Username NOT LIKE '$name'";
 $result = $db->query($commandText);
 if ($result) {
-    while ($row == mysqli_fetch_row($result)){
+    while ($row = mysqli_fetch_row($result)){
         $rating = 0;
         $FriendUsername = $row[1];
-        $FriendGender = $row[5];
-        $FriendPreference = $row[6];
-        $FriendCity = $row[7];
-        $FriendAge = $row[9];
-        $FriendMaxdistance = $row[10];
-        $FriendMaxage = $row[11];
-        $FriendInterest = $row[12];
+        $FriendGender = $row[6];
+        $FriendPreference = $row[7];
+        $FriendCity = $row[8];
+        $FriendAge = $row[10];
+        $FriendMaxdistance = $row[11];
+        $FriendMaxage = $row[12];
+        $FriendInterest = $row[13];
         //gender
 
         if ($preference == 'both'){
@@ -43,24 +43,18 @@ if ($result) {
                 $rating++;
             }else if($FriendPreference == $Gender){
                 $rating++;
-            }else{
-                continue;
             }
         }else if($preference == $FriendGender){
             if($FriendPreference == 'both'){
                 $rating++;
             }else if($FriendPreference == $Gender){
                 $rating++;
-            }else{
-                continue;
             }
         }else{
             if($FriendPreference == 'both'){
                 $rating++;
             }else if($FriendPreference == $Gender){
                 $rating++;
-            }else{
-                continue;
             }
         }
         //calculate prefered distance
