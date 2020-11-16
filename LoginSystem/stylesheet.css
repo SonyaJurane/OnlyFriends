@@ -1,0 +1,123 @@
+.bg-homepage {
+    background-image:url('bgimage.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center top;
+    height:100%;
+}
+
+.btn-homepage {
+    background: #F1C21B;
+    color: white;
+    border-color: #F1C21B;
+    text-transform: uppercase;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-family: Roboto;
+    font-style: normal;
+    letter-spacing: 0.105em;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+
+.homepage-h1 {
+    color: white;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-style: normal;
+    letter-spacing: 0.015em;
+    text-align: center;
+}
+
+.homepage-h3 {
+    color: white;
+    font-family: Roboto;
+    font-style: normal;
+    letter-spacing: 0.015em;
+    text-align: center;
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 414px) {
+    .homepage-h1 {
+        margin-top: 40px;
+        font-size: 36px;
+        line-height: 50px;
+    }
+
+    .homepage-h3 {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 28px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+
+    .btn-homepage {
+        font-size: 16px;
+    }
+}
+/* For tablets */
+@media only screen and (min-width: 415px) and (max-width: 1023px) {
+    .homepage-h1 {
+        margin-top: 50px;
+        font-size: 36px;
+        line-height: 50px;
+    }
+
+    .homepage-h3 {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 28px;
+        padding-top: 15px;
+        padding-bottom: 20px;
+    }
+
+    .btn-homepage {
+        font-size: 16px;
+    }
+}
+/* For desktops */
+@media only screen and (min-width: 1024px) {
+    .homepage-h1 {
+        margin-top: 150px;
+        font-size: 64px;
+        line-height: 78px;
+    }
+
+    .homepage-h3 {
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 38px;
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+
+    .btn-homepage {
+        font-size: 18px;
+    }
+}
+
+.navbar {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
+
+.navbar-nav > li{
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.navbar-brand > img{
+    padding-right:20px;
+}
+
+
