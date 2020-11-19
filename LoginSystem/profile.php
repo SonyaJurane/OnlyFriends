@@ -79,7 +79,7 @@ echo '<tr>
 </tr>';
 echo '<tr>
 <td><b><u>Maximum Distance</u></b></td>
-<td> </td>
+<td> <b><a style=color:black href=https://onlyfriendspage.000webhostapp.com/userdata.php>Edit Details</a></b></td>
 <td><b><u>Maximum Age</u></b></td>
 </tr>';
 echo '<tr>
