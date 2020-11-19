@@ -48,6 +48,8 @@ $Gender = $row[6];
 $PFP = $row[9];
 $Age = $row[10];
 echo "<br>";
+echo $row[1];
+$_SESSION['matchusername'] =$row[1];
 //profile picture
 if ($PFP == 'defaultpic.png'){
     $PFP = 'ProfilePic/'.$PFP;
@@ -57,4 +59,5 @@ echo "<img src='$PFP' class='rounded-circle' style='display: block; margin-left:
 echo "<div class='h1' style='text-align:center;'>$Name</div>";
 //information table
 ?>
+<a class="btn btn-danger" href="Interested.php" role="button">Interested</a>
 <a class="btn btn-primary" href="NextMatch.php" role="button">NEXT</a>

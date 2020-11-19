@@ -36,8 +36,11 @@ if ($result) {
         $FriendMaxdistance = $row[11];
         $FriendMaxage = $row[12];
         $FriendInterest = $row[13];
+        
+        if ($FriendGender == Null){
+            continue;
+        }
         //gender
-
         if ($preference == 'both'){
             if($FriendPreference == 'both'){
                 $rating++;
@@ -72,12 +75,18 @@ if ($result) {
         if($age < $FriendMaxage && $FriendAge < $maxage){
             $rating++;
         }
-        if($interest == $FriendInterest){
-            $rating++;
-        }
+        //matching interests
+        $userlist = explode('|',$interest);
+        $friendlist = explode('|',$FriendInterest);
+        $intersect = array_intersect($userlist,$friendlist);
+        
+        $rating += sizeof($intersect);
+        
+        //set start of matching array
         if($highestrate < $rating){
             $highestrate = $rating;
         }
+        
         if(isset($matches[$rating])){
             array_push($matches[$rating], $FriendUsername);
         }else{
@@ -91,6 +100,7 @@ if ($result) {
     $_SESSION["matches"] = $matches;
     $_SESSION["rating"] = $highestrate;
     $_SESSION["order"] = 0;
+    mysqli_close($db);
 
 }
 ?>
