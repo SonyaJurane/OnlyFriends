@@ -9,6 +9,9 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="nameverify.js"></script>
 </head>
+<?php
+$_SESSION['httpreferer'] = $_SERVER['HTTP_REFERER'];
+?>
 <body>
 <br><br><br>
 <div class="corners1" style="height:auto; width:750px">
