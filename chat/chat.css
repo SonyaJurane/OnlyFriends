@@ -30,7 +30,7 @@ input{
     border-radius: 5px;
     margin-bottom: 8px;
     word-wrap: break-word;
-    width:fit-content
+    width:fit-content;
 }
 .msg p{
     margin:0;
@@ -39,4 +39,8 @@ input{
 .msg span{
     font-size: 0.7rem;
     margin-left: 15px
+}
+.msguser {
+    margin-left:auto; 
+    margin-right:0; 
 }
