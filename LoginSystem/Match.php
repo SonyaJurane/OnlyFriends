@@ -85,7 +85,7 @@ echo '<tr>
 <td></td>
 </tr>';
 echo '<tr>
-<td>'.$city.' km </td>
+<td>'.$city.'</td>
 <td> </td>
 <td></td>
 </tr>
