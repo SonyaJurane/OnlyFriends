@@ -81,7 +81,7 @@ echo '<tr>
 </tr>';
 echo '<tr>
 <td><b><u>City</u></b></td>
-<td> <b><a style=color:black href=https://onlyfriendspage.000webhostapp.com/userdata.php>Edit Details</a></b></td>
+<td></td>
 <td></td>
 </tr>';
 echo '<tr>
