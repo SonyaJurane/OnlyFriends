@@ -25,17 +25,17 @@ session_start();
     ?>
     <script>
         var from=null, receiver=null, start = 0, url = "https://onlyfriendspage.000webhostapp.com/dm/chat.php";
+        //var chatswap = false;
         $(document).ready(function(){
             $('select').on('change', function() {
                 //$("#messages").empty();
-                
                 from = "<?php echo $username ?>";
                 receiver = this.value;
-                
+                //chatswap=true;
                 //load() UNCOMMENT IF WANT INSTANT MESSAGING ON PAID SERVERS
                 //COMMENT BELOW THIS OUT IF WANT INSTANT MESSAGING
                 setInterval(function () {
-                load();
+                    load();
                 }, 1500); //1.5 seconds
                 //}, 1000000); //17 minutes
                 //}, 8000000 ); //3 hours
@@ -59,13 +59,24 @@ session_start();
         function load(){
             $.get(url + '?start=' +start, function(result){
                 if(result.items){
-                    //for(var i=0; i < result.items.length;i++){
-                        
-                    //}
-                    result.items.forEach(item =>{
-                        start = item.id;
+                    //result.items.forEach(item =>{
+                    //    start = item.id;
+                    //    $('#messages').append(renderMessage(item));
+                    //});
+                    for (let item of result.items) {
+                        $('select').on('change', function() {
+                            $("#messages").empty();
+                            //if (chatswap==true){
+                            //    chatswap=false;
+                                start=0;         
+                                console.log("test");
+                            //}
+                        });
+                        //alert(start);
+                        start+=1;
+                        //start = item.id;
                         $('#messages').append(renderMessage(item));
-                    });
+                    }
                     $('#messages').animate({scrollTop: $('#messages')[0].scrollHeight});
                 };
                 //load(); UNCOMMENT IF WANT INSTANT MESSAGING ON PAID SERVERS NOT RECOMMENDED
@@ -76,7 +87,6 @@ session_start();
             let time = new Date(item.created);
             time.setHours(time.getHours()-5);
             time = `${time.getHours()}:${time.getMinutes() < 10? '0' :''}${time.getMinutes()}`;
-                alert(receiver)
                 //NEED TO EDIT THIS LINE SO NOT HARD CODED, EXTRACT THE RECIPIENT FROM FRIEND LIST
                 if ((item.recipient == receiver && item.sender == "<?php echo $username ?>") || (item.recipient == "<?php echo $username ?>" && item.sender == receiver))
                 {
