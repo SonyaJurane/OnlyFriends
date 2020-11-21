@@ -1,9 +1,5 @@
 <?php
 session_start();
-if(!isset($_SESSION["username"]))
-{
-    header("Location: https://onlyfriendspage.000webhostapp.com/login.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +33,7 @@ if(!isset($_SESSION["username"]))
             load();
             //}, 1500); //1.5 seconds
             //}, 1000000); //17 minutes
-            }, 8000 ); //3 hours
+            }, 8000000 ); //3 hours
             //COMMENT ABOVE THIS OUT IF WANT INSTANT MESSAGING (It'll max out a free database quick tho)
             $('form').submit(function(e){
                 //Ajax
