@@ -1,7 +1,10 @@
 <?php
 session_start();
+if(!isset($_SESSION["username"]))
+{
+    header("Location: https://onlyfriendspage.000webhostapp.com/login.php");
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +37,7 @@ session_start();
             load();
             //}, 1500); //1.5 seconds
             //}, 1000000); //17 minutes
-            }, 2000 ); //3 hours
+            }, 8000 ); //3 hours
             //COMMENT ABOVE THIS OUT IF WANT INSTANT MESSAGING (It'll max out a free database quick tho)
             $('form').submit(function(e){
                 //Ajax
@@ -65,7 +68,7 @@ session_start();
             let time = new Date(item.created);
             time.setHours(time.getHours()-5);
             time = `${time.getHours()}:${time.getMinutes() < 10? '0' :''}${time.getMinutes()}`;
-                //NEED TO EDIT THIS LINE SO NOT HARD CODED
+                //NEED TO EDIT THIS LINE SO NOT HARD CODED, EXTRACT THE RECIPIENT FROM FRIEND LIST
                 if ((item.recipient == "asuna" && item.sender == "<?php echo $username ?>") || (item.recipient == "<?php echo $username ?>" && item.sender == "asuna"))
                 {
                     if (item.sender == "<?php echo $username ?>")
