@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
 if($db->connect_error){
@@ -8,15 +9,18 @@ $result = array();
 $message = isset($_POST['message']) ? $_POST['message'] : null;
 $sender = isset($_POST['sender']) ? $_POST['sender'] : null;
 $recipient = isset($_POST['recipient']) ? $_POST['recipient'] : null;
-
-if(!empty($message) && !empty($sender)){
+$username =  $_SESSION["username"];
+if(!empty($message) && !empty($senuder)){
     $sql = "INSERT INTO `dm` (`message`, `sender`, `recipient`) VALUES ('$message', '$sender', '$recipient');";
     $result['send_status'] = $db->query($sql);
 }
 
 //print messages
+//($var > 2 ? echo "greater" : echo "smaller") is an ex of what below does
 $start = isset($_GET['start']) ? intval($_GET['start']) : 0;
+//$items = $db->query("SELECT * FROM `dm` WHERE sender = '$username' >" .$start);
 $items = $db->query("SELECT * FROM `dm` WHERE `id` >" .$start);
+
 while($row = $items->fetch_assoc()){
     $result['items'][] = $row;
 }

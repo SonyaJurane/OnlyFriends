@@ -21,38 +21,50 @@ session_start();
     $FirstName = $row[4];
     $LastName =$row[5];
     $FullName = $FirstName . " " . $LastName;
+ 
     ?>
     <script>
         var from=null, receiver=null, start = 0, url = "https://onlyfriendspage.000webhostapp.com/dm/chat.php";
         $(document).ready(function(){
-            from = "<?php echo $username ?>";
-            receiver = "asuna";
-            //load() UNCOMMENT IF WANT INSTANT MESSAGING ON PAID SERVERS
-            //COMMENT BELOW THIS OUT IF WANT INSTANT MESSAGING
-            setInterval(function () {
-            load();
-            //}, 1500); //1.5 seconds
-            //}, 1000000); //17 minutes
-            }, 8000000 ); //3 hours
-            //COMMENT ABOVE THIS OUT IF WANT INSTANT MESSAGING (It'll max out a free database quick tho)
-            $('form').submit(function(e){
-                //Ajax
-                //https://www.w3schools.com/jquery/jquery_ajax_get_post.asp
-                $.post(url, {message: $('#message').val(),
-                sender: from,
-                recipient: receiver
-                });
-                $('#message').val("")
-                return false;
-            }) 
+            $('select').on('change', function() {
+                //$("#messages").empty();
+                
+                from = "<?php echo $username ?>";
+                receiver = this.value;
+                
+                //load() UNCOMMENT IF WANT INSTANT MESSAGING ON PAID SERVERS
+                //COMMENT BELOW THIS OUT IF WANT INSTANT MESSAGING
+                setInterval(function () {
+                load();
+                }, 1500); //1.5 seconds
+                //}, 1000000); //17 minutes
+                //}, 8000000 ); //3 hours
+                //COMMENT ABOVE THIS OUT IF WANT INSTANT MESSAGING (It'll max out a free database quick tho)
+                
+                //This is just to send messages into chat, not actually print anything
+                $('form').submit(function(e){
+                    //Ajax
+                    //https://www.w3schools.com/jquery/jquery_ajax_get_post.asp
+                    $.post(url, {message: $('#message').val(),
+                    sender: from,
+                    recipient: receiver 
+                    });
+                    $('#message').val("")
+                    return false;
+                }) 
+            });
         });
-
+        
+        //Load the messages
         function load(){
             $.get(url + '?start=' +start, function(result){
                 if(result.items){
+                    //for(var i=0; i < result.items.length;i++){
+                        
+                    //}
                     result.items.forEach(item =>{
-                      start = item.id;
-                      $('#messages').append(renderMessage(item));
+                        start = item.id;
+                        $('#messages').append(renderMessage(item));
                     });
                     $('#messages').animate({scrollTop: $('#messages')[0].scrollHeight});
                 };
@@ -64,8 +76,9 @@ session_start();
             let time = new Date(item.created);
             time.setHours(time.getHours()-5);
             time = `${time.getHours()}:${time.getMinutes() < 10? '0' :''}${time.getMinutes()}`;
+                alert(receiver)
                 //NEED TO EDIT THIS LINE SO NOT HARD CODED, EXTRACT THE RECIPIENT FROM FRIEND LIST
-                if ((item.recipient == "asuna" && item.sender == "<?php echo $username ?>") || (item.recipient == "<?php echo $username ?>" && item.sender == "asuna"))
+                if ((item.recipient == receiver && item.sender == "<?php echo $username ?>") || (item.recipient == "<?php echo $username ?>" && item.sender == receiver))
                 {
                     if (item.sender == "<?php echo $username ?>")
                     {
@@ -86,5 +99,10 @@ session_start();
         <input type="text" id="message" autocomplete="off" autofocus placeholder="Type message...">
         <input type="submit" value="Send">
     </form>
+    <select>
+    <option disabled selected value>Talk</option>
+    <option value="asuna">asuna</option>
+    <option value="Yukino">Yukino</option>
+    </select>
 </body>
 </html>
