@@ -11,7 +11,25 @@ session_start();
 </head>
 <?php
 $_SESSION['httpreferer'] = $_SERVER['HTTP_REFERER'];
-?>
+$db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
+if ($db -> connect_error) {
+    echo ("Failed to connect to MySQL: " . $db -> connect_error);
+    exit();
+}
+$username = $_SESSION["username"];
+$prompt = "SELECT * FROM Login WHERE Username = '$username'";
+$data = $db->query($prompt);
+$row = mysqli_fetch_row($data);
+$Name = $row[4];
+$LastName =$row[5];
+$age = $row[10];
+$maxage = $row[12];
+$occupation = $row[16];
+$maxdistance = $row[11];
+if($occupation == 'None'){
+    $occupation = ''; 
+}
+echo'
 <body>
 <br><br><br>
 <div class="corners1" style="height:auto; width:750px">
@@ -19,11 +37,11 @@ $_SESSION['httpreferer'] = $_SERVER['HTTP_REFERER'];
 	<form name="form" method="post" action="reguserdata.php" onsubmit="return validateForm(event)">
         <h2>My first name is...</h2>
         <div class="input-group">
-        <input id="name" type="name" name="name" required>
+        <input id="name" type="name" name="name" value="'.$Name.'" required>
         </div>
         <h2>My Last name is...</h2>
         <div class="input-group">
-        <input id="lastname" type="lastname" name="lastname" required>
+        <input id="lastname" type="lastname" name="lastname" value="'.$LastName.'" required>
         </div>
         <h2>I am from...</h2>
         <div class="input-group">
@@ -102,15 +120,21 @@ $_SESSION['httpreferer'] = $_SERVER['HTTP_REFERER'];
         </div>
         <h2>        
         <div>
-        I am <input type="number" id="age" name="age" min=10 required> years old
+        My Occupation is a <input type="text" id="occupation" name="occupation" value="'.$occupation.'" required> 
+        </div>
+        </h2>
+        <h2>
+        <h2>        
+        <div>
+        I am <input type="number" id="age" name="age" min=10 value="'.$age.'" required> years old
         </div>
         </h2>
         <h2>   
         <div>
-        Looking for someone at most <input type="number" id="maxage" name="maxage" min=10 requiredrequired> years old
+        Looking for someone at most <input type="number" id="maxage" name="maxage" min=10 value="'.$maxage.'" required> years old
         </div> 
         <div>
-        Preferably looking for some one less than <input type="number" id="maxdistance" name="maxdistance" min=0 required>Km away
+        Preferably looking for some one less than <input type="number" id="maxdistance" name="maxdistance" min=0 value="'.$maxdistance.'" required>Km away
         </div> 
         </h2>
         </h2>
@@ -145,7 +169,8 @@ $_SESSION['httpreferer'] = $_SERVER['HTTP_REFERER'];
         
     </form>
     
-</div>
+</div>';
+?>
 </body>
 </html>
     

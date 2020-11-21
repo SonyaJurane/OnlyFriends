@@ -51,6 +51,8 @@ $city = explode('|',$city);
 $city = $city[2];
 $maxage = $row[12];
 $interests = $row[13];
+$occupation = $row[16];
+$bio = $row[17];
 echo "<br>";
 //profile picture
 if ($PFP == 'defaultpic.png'){
@@ -82,15 +84,27 @@ echo '<tr>
 echo '<tr>
 <td><b><u>City</u></b></td>
 <td> <b><a style=color:black href=https://onlyfriendspage.000webhostapp.com/userdata.php>Edit Details</a></b></td>
-<td><b><u>Maximum Age</u></b></td>
+<td><b><u>Occupation</u></b></td>
 </tr>';
 echo '<tr>
 <td>'.$city.'</td>
 <td> </td>
-<td>'.$maxage.'</td>
+<td>'.$occupation.'</td>
 </tr>
-</table>';
+</table>
+<a href="userdata.php">EDIT</a>'
+;
 
+echo '<br>
+<h4>Biography</h4>
+<form action="updatebio.php" method="post">
+    <textarea rows="10" cols="50" maxlength="300" name="bio">
+    '.$bio.'
+    </textarea>
+    <br>
+    <input type="submit" value="Change" name="submit">
+</form>';
 ?>
+
 </body>
 </html>
