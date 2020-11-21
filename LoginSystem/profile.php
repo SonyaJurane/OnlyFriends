@@ -46,7 +46,9 @@ $LastName =$row[5];
 $Gender = $row[6];
 $PFP = $row[9];
 $Age = $row[10];
-$maxdistance = $row[11];
+$city = $row[8];
+$city = explode('|',$city);
+$city = $city[2];
 $maxage = $row[12];
 $interests = $row[13];
 echo "<br>";
@@ -78,12 +80,12 @@ echo '<tr>
 <td>'.ucfirst($Gender).'</td>
 </tr>';
 echo '<tr>
-<td><b><u>Maximum Distance</u></b></td>
+<td><b><u>City</u></b></td>
 <td> <b><a style=color:black href=https://onlyfriendspage.000webhostapp.com/userdata.php>Edit Details</a></b></td>
 <td><b><u>Maximum Age</u></b></td>
 </tr>';
 echo '<tr>
-<td>'.$maxdistance.' km </td>
+<td>'.$city.'</td>
 <td> </td>
 <td>'.$maxage.'</td>
 </tr>
