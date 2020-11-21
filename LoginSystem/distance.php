@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html>
-<body>
-
 <?php
 function calculateDistance($lat1, $lon1, $lat2, $lon2){
         $R = 6371; // km
@@ -23,6 +19,3 @@ function convertRadians($Value)
 }
 //calculateDistance(43.8561,79.3370,43.6532,79.3832)
 ?>
-
-</body>
-</html>
