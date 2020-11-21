@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
 if($db->connect_error){
@@ -6,16 +7,20 @@ if($db->connect_error){
 }
 $result = array();
 $message = isset($_POST['message']) ? $_POST['message'] : null;
-$from = isset($_POST['from']) ? $_POST['from'] : null;
-
-if(!empty($message) && !empty($from)){
-    $sql = "INSERT INTO `chat` (`message`, `from`) VALUES ('".$message."','".$from."')";
+$sender = isset($_POST['sender']) ? $_POST['sender'] : null;
+$recipient = isset($_POST['recipient']) ? $_POST['recipient'] : null;
+$username =  $_SESSION["username"];
+if(!empty($message) && !empty($sender)){
+    $sql = "INSERT INTO `dm` (`message`, `sender`, `recipient`) VALUES ('$message', '$sender', '$recipient');";
     $result['send_status'] = $db->query($sql);
 }
 
 //print messages
+//($var > 2 ? echo "greater" : echo "smaller") is an ex of what below does
 $start = isset($_GET['start']) ? intval($_GET['start']) : 0;
-$items = $db->query("SELECT * FROM `chat` WHERE `id` >" .$start);
+//$items = $db->query("SELECT * FROM `dm` WHERE sender = '$username' >" .$start);
+$items = $db->query("SELECT * FROM `dm` WHERE `id` >" .$start);
+
 while($row = $items->fetch_assoc()){
     $result['items'][] = $row;
 }
