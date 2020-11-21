@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
 if($db->connect_error){
