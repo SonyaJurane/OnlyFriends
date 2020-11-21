@@ -1,3 +1,4 @@
+/* Homepage */
 .bg-homepage {
     background-image:url('bgimage.jpg');
     background-repeat:no-repeat;
@@ -41,6 +42,106 @@
     text-align: center;
 }
 
+/* Sign up */
+/*div.signup-form {
+    margin: auto;
+    text-align: center;
+    top: 50%;
+    padding: 30px; 
+    width: 400px;
+    height: 500px;  
+    
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 17px;
+}*/
+
+.signup-h2 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 31px;
+    line-height: 38px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.015em;
+}
+
+.signup-label {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    letter-spacing: 0.015em;
+    color: #424242;
+}
+
+.jumbotron {
+    margin-top: 50px;
+    position: relative;
+    max-width: 300px;
+    background-color: #E9E9E9;
+    margin: auto;
+}
+
+.jumbotron-content {
+    padding: 0 5px;
+    height: 100%;
+    border-radius: 17px;
+}
+
+form {
+    margin: 30px 0;
+    text-align:center;
+    font-size:18px;
+}
+
+form, 
+.input {
+    width: 100%;
+}
+.signup-label {
+    margin-left: 15px;
+}
+
+/*
+form, 
+    .radiobutton {
+    width: 100px; 
+    margin: 0 auto;
+    text-align:left;
+    font-size:18px
+    }
+    .btn {
+    padding: 10px;
+    background: #F1C21B;
+    color: white;
+    border-color: #F1C21B;
+    text-transform: uppercase;
+    font-family: Roboto;
+    font-style: normal;
+    letter-spacing: 0.105em;
+    font-weight: bold;
+    }
+
+    .error {
+    width: 92%; 
+    margin: 0px auto; 
+    padding: 10px; 
+    border: 1px solid #a94442; 
+    color: #a94442; 
+    background: #f2dede; 
+    border-radius: 5px; 
+    text-align: left;
+    }
+    .success {
+    color: #3c763d; 
+    background: #dff0d8; 
+    border: 1px solid #3c763d;
+    margin-bottom: 20px;
+    } */
+
 /* For mobile devices */
 @media only screen and (max-width: 414px) {
     .homepage-h1 {
@@ -60,6 +161,7 @@
     .btn-homepage {
         font-size: 16px;
     }
+
 }
 /* For tablets */
 @media only screen and (min-width: 415px) and (max-width: 1023px) {
@@ -80,7 +182,12 @@
     .btn-homepage {
         font-size: 16px;
     }
+
+    .signup-label {
+        margin-left: 15px;
+    }
 }
+
 /* For desktops */
 @media only screen and (min-width: 1024px) {
     .homepage-h1 {
@@ -100,6 +207,11 @@
     .btn-homepage {
         font-size: 18px;
     }
+
+    .signup-label {
+        margin-left: 15px;
+    }
+
 }
 
 .navbar {
