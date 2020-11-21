@@ -38,7 +38,7 @@ if ($db -> connect_error) {
     exit();
 }
 
-$prompt = "SELECT * FROM Login WHERE Username LIKE '$username'";
+$prompt = "SELECT * FROM Login WHERE Username = '$username'";
 $data = $db->query($prompt);
 $row = mysqli_fetch_row($data);
 $Name = $row[4];

@@ -40,7 +40,7 @@ if ($db -> connect_error) {
     echo ("Failed to connect to MySQL: " . $db -> connect_error);
     exit();
 }
-$prompt = "SELECT * FROM Login WHERE Username LIKE '$match'";
+$prompt = "SELECT * FROM Login WHERE Username = '$match'";
 $data = $db->query($prompt);
 $row = mysqli_fetch_row($data);
 $Name = $row[4];

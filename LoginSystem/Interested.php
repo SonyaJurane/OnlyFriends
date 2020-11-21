@@ -8,7 +8,7 @@ if ($db -> connect_error) {
 }
 $name = $_SESSION["username"];
 $frienduser = $_SESSION['matchusername'];
-$prompt = "SELECT * FROM Login WHERE Username LIKE '$name'";
+$prompt = "SELECT * FROM Login WHERE Username = '$name'";
 $data  = $db->query($prompt);
 $row = mysqli_fetch_row($data);
 $matchlist = $row[15];
@@ -23,7 +23,7 @@ $sql = "UPDATE Login SET matches='$matchlist' WHERE Username='$name'";
 mysqli_query($db, $sql);
 
 // check if mutual in match list
-$prompt2 = "SELECT * FROM Login WHERE Username LIKE '$frienduser'";
+$prompt2 = "SELECT * FROM Login WHERE Username = '$frienduser'";
 $data2  = $db->query($prompt2);
 $row2 = mysqli_fetch_row($data2);
 $friendmatch = $row[15];

@@ -9,7 +9,7 @@ if ($db -> connect_error) {
 $name = $_SESSION["username"];
 //get preference data
 //age 
-$prompt = "SELECT * FROM Login WHERE Username LIKE '$name'";
+$prompt = "SELECT * FROM Login WHERE Username = '$name'";
 $data = $db->query($prompt);
 $row = mysqli_fetch_row($data);
 $Username = $row[1];
@@ -23,7 +23,7 @@ $interest = $row[13];
 include 'distance.php';
 $matches = [];
 $highestrate = 0;
-$commandText = "SELECT * FROM Login WHERE Username NOT LIKE '$name'";
+$commandText = "SELECT * FROM Login WHERE Username != '$name'";
 $result = $db->query($commandText);
 if ($result) {
     while ($row = mysqli_fetch_row($result)){
