@@ -64,10 +64,25 @@ session_start();
                     //    $('#messages').append(renderMessage(item));
                     //});
                     for (let item of result.items) {
+                        ///This select shit here is the source of spaghetti, but idk how to replace it lmao
+                        //Try using the messages.empty above and comment this one below out, and see how it works
                         $('select').on('change', function() {
                             $("#messages").empty();
                             //if (chatswap==true){
                             //    chatswap=false;
+                                //is it possible the bug is caused because when u press
+                                //a button, it goes here and then goes to the code below as well?
+                                //try moving this to its own function or below the  shit below
+                                //https://jsfiddle.net/phpdeveloperrahul/CAKG4/
+                                //also see what happens when u set start=1 here
+                                //also test using alerts and see how the program itself works and if
+                                //its infinitely calling from sql. like lets say its read the first
+                                //30 msgs from database already, does it keep looping 1-30 or goes 31+
+                                //could duplication glitch be because the id(start) goes to like 6,
+                                //but theres only 3 things actually being printed?
+                                //unlikely because i think program actually goes through everything
+                                //and it just checks using if statements if the sender and recipient
+                                //matches up and displays that.
                                 start=0;         
                                 console.log("test");
                             //}
@@ -113,6 +128,7 @@ session_start();
     <option disabled selected value>Talk</option>
     <option value="asuna">asuna</option>
     <option value="Yukino">Yukino</option>
+    <option value="misaka">misaka</option>
     </select>
 </body>
 </html>

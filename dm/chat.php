@@ -10,7 +10,7 @@ $message = isset($_POST['message']) ? $_POST['message'] : null;
 $sender = isset($_POST['sender']) ? $_POST['sender'] : null;
 $recipient = isset($_POST['recipient']) ? $_POST['recipient'] : null;
 $username =  $_SESSION["username"];
-if(!empty($message) && !empty($senuder)){
+if(!empty($message) && !empty($sender)){
     $sql = "INSERT INTO `dm` (`message`, `sender`, `recipient`) VALUES ('$message', '$sender', '$recipient');";
     $result['send_status'] = $db->query($sql);
 }
