@@ -4,7 +4,6 @@ $name = $_SESSION["username"];
 $matches = $_SESSION["matches"];
 $order = $_SESSION["order"];
 $rating = $_SESSION["rating"];
-header("Location: Match.php");
 if(end($matches[$rating])==$matches[$rating][$order] && $rating != 0){
     $_SESSION["rating"] = $rating - 1;
     while(!isset($matches[$rating])){

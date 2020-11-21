@@ -34,29 +34,64 @@ $order = $_SESSION["order"];
 $rating = $_SESSION["rating"];
 echo $rating;
 echo $order;
-echo sizeof($matches[$rating]);
-print_r($matches);
 $match = $matches[$rating][$order];
 $db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
 if ($db -> connect_error) {
     echo ("Failed to connect to MySQL: " . $db -> connect_error);
     exit();
 }
-$prompt = "SELECT * FROM Login WHERE Username LIKE '$match'";
+$prompt = "SELECT * FROM Login WHERE Username = '$match'";
 $data = $db->query($prompt);
 $row = mysqli_fetch_row($data);
 $Name = $row[4];
-$Gender = $row[5];
-$PFP = $row[8];
-$Age = $row[9];
+$LastName = $row[5];
+$Gender = $row[6];
+$PFP = $row[9];
+$Age = $row[10];
+$city = $row[8];
+$city = explode('|',$city);
+$city = $city[2];
+$interests = $row[13];
 echo "<br>";
+echo $row[1];
+$_SESSION['matchusername'] =$row[1];
 //profile picture
 if ($PFP == 'defaultpic.png'){
     $PFP = 'ProfilePic/'.$PFP;
 }
 
-echo "<img src='$PFP' class='rounded-circle' style='display: block; margin-left: auto;margin-right: auto;width:400px;height:400px;'alt='profile'/>";
-echo "<div class='h1' style='text-align:center;'>$Name</div>";
+echo "<img src='$PFP' class='rounded-circle' style='display: block; margin-left: auto;margin-right: auto;width:400px;height:400px;border: 2px solid black;'alt='profile'/>";
+echo "<div class='h1' style='text-align:center;'>$Name $LastName</div>";
 //information table
+echo '<table style = "border: 1px solid black;font-size: 32px;	text-align: center;" width = "1000px" cellpadding="15" border="0" align="center">';
 ?>
-<a class="btn btn-primary" href="NextMatch.php" role="button">NEXT</a>
+
+<a class="btn btn-danger" style="margin-right: 10px; line-height: 40px; width: 160px" href="Interested.php" role="button">Interested</a>
+<a class="btn btn-primary" style="line-height: 40px; width: 160px"href="NextMatch.php" role="button">NEXT</a>
+<?php
+echo '<br><br><tr>
+<td><b><u>Likes</u></b></td>
+<td><b><u>Age</u></b></td>
+<td><b><u>Gender</u></b></td>
+</tr>';
+echo '<tr>
+<td>'.ucfirst($interests).'</td>
+<td>'.$Age.'</td>
+<td>'.ucfirst($Gender).'</td>
+</tr>';
+echo '<tr>
+<td><b><u>City</u></b></td>
+<td></td>
+<td></td>
+</tr>';
+echo '<tr>
+<td>'.$city.'</td>
+<td> </td>
+<td></td>
+</tr>
+</table>';
+
+?>
+
+</body>
+</html>
