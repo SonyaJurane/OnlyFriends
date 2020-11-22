@@ -25,7 +25,7 @@ session_start();
 <div class="container">
 <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="">
-    <img src="navbar_logo.png" class="d-inline-block align-center" alt="Logo">
+    <img src="../navbar_logo.png" class="d-inline-block align-center" alt="Logo">
     Only Friends
     </a>
 
