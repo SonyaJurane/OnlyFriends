@@ -108,10 +108,10 @@ session_start();
         <li class="nav-item">
             <a class="nav-link" href="">My friends<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="">Public chat<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item chat">
+        <li class="nav-item">
             <a class="nav-link" href="">Direct Messages<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
