@@ -1,13 +1,12 @@
 body{
     margin:0;
     overflow:hidden;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Roboto';
 }
 #messages{
-    height:88vh;
+    height:75vh;
     overflow-x:hidden;
     padding: 10px;
-    background-image:url(bg.png)
 }
 form{
     display:flex
@@ -25,14 +24,16 @@ input{
     flex: 2
 }
 .msg {
-    background-color: #dcf8c6;
+    background-color: #F1C21B;
     padding:5px 10px;
     border-radius: 5px;
     margin-bottom: 8px;
     word-wrap: break-word;
-    width:fit-content;
+    width: fit-content;
+    /*width:45%;*/
 }
 .msg p{
+    word-wrap:normal;
     margin:0;
     font-weight:bold
 }

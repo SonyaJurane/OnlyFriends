@@ -12,7 +12,8 @@ session_start();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="chat.css">
+
     <?php
     $username = $_SESSION["username"];
     $db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
@@ -36,9 +37,9 @@ session_start();
             //COMMENT BELOW THIS OUT IF WANT INSTANT MESSAGING
             setInterval(function () {
             load();
-            //}, 1500); //1.5 seconds
+            }, 1500); //1.5 seconds
             //}, 1000000); //17 minutes
-            }, 1500 ); //3 hours
+            //}, 100000000000000 ); //3 hours
             //COMMENT ABOVE THIS OUT IF WANT INSTANT MESSAGING (It'll max out a free database quick tho)
             $('form').submit(function(e){
                 $.post(url, {message: $('#message').val(),
@@ -80,7 +81,6 @@ session_start();
 </head>
 <body>
 <!--JavaScript: jQuery first, then Popper.js, then Bootstrap JS-->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
@@ -124,32 +124,12 @@ session_start();
 
 <div class="container">
 <div class="row">
-    <div class="col-4">
-        <div class="leftbox-chat">
-        <table style="width:100%">
-        <tr>
-            <th>Image</th>
-            <td>Name</td>
-        </tr>
-        <tr>
-            <th>Image</th>
-            <td>Name</td>
-        </tr>
-        <tr>
-            <th>Image</th>
-            <td>Name</td>
-        </tr>
-        </table>
-            <div id="messages"></div>
-        </div>
-    </div>
-    <div class="col-8">
-        <div class="rightbox-chat">
-            <form>
-                <input class="input-chat" type="text" id="message" autocomplete="off" autofocus placeholder="Type message...">
-                <input class="input-chat" type="submit" value="Send">
-            </form>
-        </div>
+    <div class="col-12">
+        <div id="messages"></div>
+        <form>
+            <input type="text" id="message" autocomplete="off" autofocus placeholder="Type message...">
+            <input type="submit" value="Send">
+        </form>
     </div>
 </div>
 </div>

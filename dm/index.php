@@ -1,12 +1,19 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Direct Messages</title>
+    <title>Public Chat</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="chat.css">
+
     <?php
     $username = $_SESSION["username"];
     $db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
@@ -119,16 +126,82 @@ session_start();
 
 </head>
 <body>
-    <div id="messages"></div>
-    <form>
-        <input type="text" id="message" autocomplete="off" autofocus placeholder="Type message...">
-        <input type="submit" value="Send">
-    </form>
-    <select>
-    <option disabled selected value>Talk</option>
-    <option value="asuna">asuna</option>
-    <option value="Yukino">Yukino</option>
-    <option value="misaka">misaka</option>
-    </select>
+<!--JavaScript: jQuery first, then Popper.js, then Bootstrap JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<!--Navigation bar (Menu)-->
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="">
+    <img src="../navbar_logo.png" class="d-inline-block align-center" alt="Logo">
+    Only Friends
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="">Find friends<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">Feed<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">My friends<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">Public chat<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item chat">
+            <a class="nav-link" href="">Direct Messages<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">Profile<span class="sr-only">(current)</span></a>
+        </li>
+        </ul>
+    </div>
+</nav>
+</div>
+
+<div class="container">
+<div class="row">
+    <div class="col-12">
+        <table style="width:100%">
+            <tr>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div id="messages"></div>
+        <form>
+            <input type="text" id="message" autocomplete="off" autofocus placeholder="Type message...">
+            <input type="submit" value="Send">
+        </form>
+        <select>
+        <option disabled selected value>Talk</option>
+        <option value="asuna">asuna</option>
+        <option value="Yukino">Yukino</option>
+        <option value="misaka">misaka</option>
+        </select>
+    </div>
+</div>
+</div>
 </body>
 </html>
