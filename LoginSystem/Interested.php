@@ -8,49 +8,39 @@ if ($db -> connect_error) {
 }
 $name = $_SESSION["username"];
 $frienduser = $_SESSION['matchusername'];
-$prompt = "SELECT * FROM Login WHERE Username = '$name'";
-$data  = $db->query($prompt);
-$row = mysqli_fetch_row($data);
-$matchlist = $row[15];
-if (is_null($matchlist)){
-    $matchlist = $frienduser;
-}else{
-    echo 'pog';
-    $matchlist .= $frienduser.'|';
-}
 //update match list
-$sql = "UPDATE Login SET matches='$matchlist' WHERE Username='$name'"; 
-mysqli_query($db, $sql);
+$prompt = "SELECT * FROM Login WHERE Username='".$name."'";
+$data = $db->query($prompt);
+$row=mysqli_fetch_row($data);
+$mymatch = explode('|',$row[14]);
+if(in_array($frienduser,$mymatch) == false){
+    $sql = "UPDATE Login SET matches = CONCAT(matches,'".$frienduser."', '|')  WHERE Username='$name'"; 
+    mysqli_query($db, $sql);
+}
 
 // check if mutual in match list
-$prompt2 = "SELECT * FROM Login WHERE Username = '$frienduser'";
-$data2  = $db->query($prompt2);
-$row2 = mysqli_fetch_row($data2);
-$friendmatch = $row[15];
-if (is_null($friendmatch)){
+$prompt2 = "SELECT * FROM Login WHERE Username='".$frienduser."'";
+$data2 = $db->query($prompt2);
+$row2=mysqli_fetch_row($data2);
+$friendarray = explode('|',$row2[15]);
+$friendmatch = $row2[14];
+if ($friendmatch == ''){
     $friendmatcharray = [];
 }else{
-    $friendmatcharray = explode('|',$row2[15]);
+    $friendmatcharray = explode('|',$row2[14]);
 }
-if(in_array($name,$friendmatcharray)){
-    $friendlist = $row[16];
-    $friendsfriendlist = $row2[16];
-    if (is_null($friendlist)){
-        $friendlist = $frienduser;
-    }else{
-        $friendlist .= $frienduser.'|';
-    }
-    if (is_null($friendsfriendlist)){
-        $friendsfriendlist = $name;
-    }else{
-        $friendsfriendlist .= $name.'|';
-    }
-    //update users friends
-    $update1 = "UPDATE Login SET friends='$matchlist' WHERE Username='$name'"; 
+
+if(in_array($name,$friendmatcharray) && in_array($name,$friendarray) == false){
+    $update1 = "UPDATE Login SET friends = CONCAT(friends,'".$frienduser."', '|')  WHERE Username='$name'"; 
     mysqli_query($db, $update1);
-    //update their friends
-    $update2 = "UPDATE Login SET friends='$matchlist' WHERE Username='$frienduser'"; 
+    $update2 = "UPDATE Login SET friends = CONCAT(friends,'".$name."', '|')  WHERE Username='$frienduser'"; 
     mysqli_query($db, $update2);
+    //update users friends
+    //$update1 = "UPDATE Login SET friends='$matchlist' WHERE Username='$name'"; 
+    //mysqli_query($db, $update1);
+    //update their friends
+    //$update2 = "UPDATE Login SET friends='$matchlist' WHERE Username='$frienduser'"; 
+    //mysqli_query($db, $update2);
 
 }
 mysqli_close($db);

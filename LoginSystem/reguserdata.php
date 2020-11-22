@@ -18,9 +18,14 @@ $gender = $_POST['gender'];
 $findgender = $_POST['findgender'];
 $maxdistance = $_POST['maxdistance'];
 $i =$_POST['interest'];
-$interestlist = implode("|",$i);
+if($i == ''){
+    $interestList = $i;
+}else{
+    $interestlist = implode("|",$i);
+}
+$occupation = $_POST['occupation'];
 
-$sql="UPDATE Login SET Names='$name', LastName='$lastname', Gender='$gender', Preference='$findgender', City='$city', Age='$age',maxdistance='$maxdistance', maxage='$maxage', interests='$interestlist' WHERE Username='$username'";
+$sql="UPDATE Login SET Names='$name', LastName='$lastname', Gender='$gender', Preference='$findgender', City='$city', Age='$age',maxdistance='$maxdistance', maxage='$maxage', interests='$interestlist', occupation='$occupation' WHERE Username='$username'";
 if(mysqli_query($db, $sql) && $_SESSION['httpreferer'] == "https://onlyfriendspage.000webhostapp.com/signup.php"){
     header("Location: login.php");
     mysqli_close($db);

@@ -32,8 +32,6 @@ $name = $_SESSION["username"];
 $matches = $_SESSION["matches"];
 $order = $_SESSION["order"];
 $rating = $_SESSION["rating"];
-echo $rating;
-echo $order;
 $match = $matches[$rating][$order];
 $db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
 if ($db -> connect_error) {
@@ -52,6 +50,14 @@ $city = $row[8];
 $city = explode('|',$city);
 $city = $city[2];
 $interests = $row[13];
+$occupation = $row[16];
+$bio = $row[17];
+if($bio == ''){
+    $bio = 'Biography not written yet';
+}
+if($interests == ''){
+    $interests = 'none';
+}
 echo "<br>";
 echo $row[1];
 $_SESSION['matchusername'] =$row[1];
@@ -82,15 +88,16 @@ echo '<tr>
 echo '<tr>
 <td><b><u>City</u></b></td>
 <td></td>
-<td></td>
+<td><b><u>Occupation<b></u></td>
 </tr>';
 echo '<tr>
 <td>'.$city.'</td>
 <td> </td>
-<td></td>
+<td>'.$occupation.'</td>
 </tr>
 </table>';
-
+echo '<p>Bio</p>';
+echo $bio;
 ?>
 
 </body>
