@@ -1,16 +1,25 @@
 body{
     margin:0;
     overflow:hidden;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Roboto';
 }
 #messages{
     height:88vh;
     overflow-x:hidden;
     padding: 10px;
-    background-image:url(bg.png)
+}
+@media (min-width: 1500px) {
+    #messages{
+        font-size:25px;
+    }
 }
 form{
     display:flex
+}
+a {
+    font-size:1.2rem;
+    padding:10px;
+    margin: 10px 5px;
 }
 input{
     font-size:1.2rem;
@@ -25,7 +34,7 @@ input{
     flex: 2
 }
 .msg {
-    background-color: #dcf8c6;
+    background-color: #F1C21B;
     padding:5px 10px;
     border-radius: 5px;
     margin-bottom: 8px;
@@ -33,6 +42,7 @@ input{
     width:fit-content;
 }
 .msg p{
+    word-wrap:normal;
     margin:0;
     font-weight:bold
 }
