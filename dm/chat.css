@@ -8,6 +8,28 @@ body{
     overflow-x:hidden;
     padding: 10px;
 }
+/* Small screen max-width 640px */
+@media only screen and (max-width:40em){#messages{height:68vh}}
+/* Medium screen min-width 641px */ 
+@media only screen and (min-width:40.063em){#messages{height:68vh}}
+/* Medium screen min-width 641px and max-width 1024px */
+@media only screen and (min-width:40.063em) and (max-width:64em){#messages{height:68vh}}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #dddddd;
+}
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+th:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
 form{
     display:flex
 }

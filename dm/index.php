@@ -28,16 +28,19 @@ session_start();
     $FirstName = $row[4];
     $LastName =$row[5];
     $FullName = $FirstName . " " . $LastName;
- 
+    $friends = $row[15];
+    $friends = explode("|",$friends);
+    $friends = array_filter($friends);
     ?>
     <script>
         var from=null, receiver=null, start = 0, url = "https://onlyfriendspage.000webhostapp.com/dm/chat.php";
         //var chatswap = false;
         $(document).ready(function(){
-            $('select').on('change', function() {
+            $('th').on('click', function() {
+                document.getElementById("message").disabled = false;
                 //$("#messages").empty();
                 from = "<?php echo $username ?>";
-                receiver = this.value;
+                receiver = $(this).html();
                 //chatswap=true;
                 //load() UNCOMMENT IF WANT INSTANT MESSAGING ON PAID SERVERS
                 //COMMENT BELOW THIS OUT IF WANT INSTANT MESSAGING
@@ -73,7 +76,7 @@ session_start();
                     for (let item of result.items) {
                         ///This select shit here is the source of spaghetti, but idk how to replace it lmao
                         //Try using the messages.empty above and comment this one below out, and see how it works
-                        $('select').on('change', function() {
+                        $('th').on('click', function() {
                             $("#messages").empty();
                             //if (chatswap==true){
                             //    chatswap=false;
@@ -91,15 +94,21 @@ session_start();
                                 //and it just checks using if statements if the sender and recipient
                                 //matches up and displays that.
                                 start=0;         
-                                console.log("test");
+                                //console.log("test");
                             //}
                         });
                         //alert(start);
                         start+=1;
                         //start = item.id;
-                        $('#messages').append(renderMessage(item));
+                        
+                        //The timeouts here are so messages aren't duplicated, but its not 100% a fix cause still happens but it seems to help
+                        setTimeout(function () {
+                            $('#messages').append(renderMessage(item));
+                        }, 50); //1.5 seconds
                     }
-                    $('#messages').animate({scrollTop: $('#messages')[0].scrollHeight});
+                    setTimeout(function () {
+                        $('#messages').animate({scrollTop: $('#messages')[0].scrollHeight});
+                    }, 50); //1.5 seconds
                 };
                 //load(); UNCOMMENT IF WANT INSTANT MESSAGING ON PAID SERVERS NOT RECOMMENDED
             });
@@ -171,19 +180,23 @@ session_start();
 <div class="container">
 <div class="row">
     <div class="col-12">
-        <table style="width:100%">
-            <tr>
-                <th>Company</th>
-                <th>Contact</th>
-                <th>Country</th>
-            </tr>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-            </tr>
-
-        </table>
+        <div style="overflow: scroll">
+            <table>
+                <tr>
+                    <?php
+                        foreach($friends as $row){
+                            $row = explode(' ',$row);
+                            //print_r($row);
+                            foreach($row as $cell){
+                                echo '<th>';
+                                echo $cell;
+                                echo '</th>';
+                            }
+                        }
+                    ?>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 
@@ -191,15 +204,9 @@ session_start();
     <div class="col-12">
         <div id="messages"></div>
         <form>
-            <input type="text" id="message" autocomplete="off" autofocus placeholder="Type message...">
+            <input type="text" id="message" autocomplete="off" autofocus placeholder="Type message..." disabled>
             <input type="submit" value="Send">
         </form>
-        <select>
-        <option disabled selected value>Talk</option>
-        <option value="asuna">asuna</option>
-        <option value="Yukino">Yukino</option>
-        <option value="misaka">misaka</option>
-        </select>
     </div>
 </div>
 </div>
