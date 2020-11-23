@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Public Chat</title>
+    <title>Direct Messages</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -17,7 +17,7 @@ session_start();
 
     <?php
     $username = $_SESSION["username"];
-    $db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
+    $db = new mysqli("localhost", "id15483164_memberdb","@NV(G4!f0KbtMO/<","id15483164_members");
     if ($db -> connect_error) {
         echo ("Failed to connect to MySQL: " . $db -> connect_error);
         exit();
@@ -34,7 +34,7 @@ session_start();
     $friends = array_filter($friends);
     ?>
     <script>
-        var from=null, receiver=null, start = 0, url = "https://onlyfriendspage.000webhostapp.com/dm/chat.php";
+        var from=null, receiver=null, start = 0, url = "http://only-friends.000webhostapp.com/dm/chat.php";
         //var chatswap = false;
         $(document).ready(function(){
             $('th').on('click', function() {

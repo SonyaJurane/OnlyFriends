@@ -64,7 +64,7 @@ $order = $_SESSION["order"];
 $rating = $_SESSION["rating"];
 
 $match = $matches[$rating][$order];
-$db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
+$db = new mysqli("localhost", "id15483164_memberdb","@NV(G4!f0KbtMO/<","id15483164_members");
 if ($db -> connect_error) {
     echo ("Failed to connect to MySQL: " . $db -> connect_error);
     exit();
@@ -146,7 +146,7 @@ if ($PFP == 'defaultpic.png'){
           ?>
             <br><br>
             <a class="btn btn-danger" style="margin-right: 15px;line-height: 40px; width: 160px"href="NextMatch.php" role="button">NEXT</a>
-            <a class="btn btn-success" style="line-height: 40px; width: 160px" href="../Interested.php" role="button">Interested</a>
+            <a class="btn btn-success" style="line-height: 40px; width: 160px" href="Interested.php" role="button">Interested</a>
 
 
         </div>

@@ -3,7 +3,7 @@ session_start();
 ?>
 <?php
 $_SESSION['username'] = $_POST['username'];
-$db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
+$db = new mysqli("localhost", "id15483164_memberdb","@NV(G4!f0KbtMO/<","id15483164_members");
 if ($db -> connect_error) {
     echo ("Failed to connect to MySQL: " . $db -> connect_error);
     exit();
