@@ -68,3 +68,9 @@ input{
     margin-left:auto; 
     margin-right:0; 
 }
+
+.shading {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.15);   
+    border-radius: 9px;
+}
