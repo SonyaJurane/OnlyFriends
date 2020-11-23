@@ -424,7 +424,16 @@ th, td {
     padding-left:20px;
     padding-right:20px;
 }
-
+    
 .navbar-brand > img{
     padding-right:20px;
+}
+
+/* Friend List */
+textarea#friends {
+    max-width:95%;
+    resize: none;
+    background: #FFF;
+    color: #000;
+
 }
