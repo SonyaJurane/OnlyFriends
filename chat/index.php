@@ -12,6 +12,7 @@ session_start();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="../stylesheet.css">
     <link rel="stylesheet" href="chat.css">
 
     <?php
@@ -37,9 +38,9 @@ session_start();
             //COMMENT BELOW THIS OUT IF WANT INSTANT MESSAGING
             setInterval(function () {
             load();
-            }, 1500); //1.5 seconds
+            //}, 1500); //1.5 seconds
             //}, 1000000); //17 minutes
-            //}, 100000000000000 ); //3 hours
+            }, 100000000000000 ); //3 hours
             //COMMENT ABOVE THIS OUT IF WANT INSTANT MESSAGING (It'll max out a free database quick tho)
             $('form').submit(function(e){
                 $.post(url, {message: $('#message').val(),
@@ -108,10 +109,10 @@ session_start();
         <li class="nav-item">
             <a class="nav-link" href="">My friends<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="">Public chat<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item chat">
             <a class="nav-link" href="">Direct Messages<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
