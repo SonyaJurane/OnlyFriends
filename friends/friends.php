@@ -75,29 +75,6 @@ $friends = $row[15];
 $friends = explode("|",$friends);
 $friends = array_filter($friends);
 
-$prompt2 = "SELECT * FROM Login WHERE Username = '$friends[0]'"; //replace with where username = friendmatch
-$data2 = $db->query($prompt2);
-$row2 = mysqli_fetch_row($data2);
-$Name = $row[4];
-$LastName =$row[5];
-$Gender = $row[6];
-$PFP = $row[9];
-$Age = $row[10];
-$city = $row[8];
-$city = explode('|',$city);
-$city = $city[2];
-$interests = $row[13];
-$occupation = $row[16];
-$bio = $row[17];
-
-echo "<br>";
-//profile picture
-if ($PFP == 'defaultpic.png'){
-    $PFP = '../ProfilePic/'.$PFP;
-}else{
-    $PFP = '../'.$PFP;
-}
-
 //echo "<img src='$PFP' class='rounded-circle' style='display: block; margin-left: auto;margin-right: auto;width:400px;height:400px;border: 2px solid black;'alt='profile'/>";
 //echo "<div class='h1' style='text-align:center;'>$Name $LastName</div>";
 //information table
@@ -109,6 +86,7 @@ if ($PFP == 'defaultpic.png'){
 <div class="row justify-content-center">
   <div class="col-sm-12">
     <?php  
+    if (count($friends) > 0) {
       foreach($friends as $row){
           $row = explode(' ',$row);
           //print_r($row);
@@ -128,6 +106,12 @@ if ($PFP == 'defaultpic.png'){
               $interests = $row2[13];
               $occupation = $row2[16];
               $bio = $row2[17];
+                //profile picture
+                if ($PFP == 'defaultpic.png'){
+                    $PFP = '../ProfilePic/'.$PFP;
+                }else{
+                    $PFP = '../'.$PFP;
+                }
             echo '
             <div class="box-profile">
               <div class="row"> 
@@ -164,12 +148,16 @@ if ($PFP == 'defaultpic.png'){
                         <br>
                         </td>
                     </tr>';
-              echo '</table>
-            </div>
-          </div>
-        </div>';
-                          }
-              }
+                 echo '</table>
+                </div>
+              </div>
+            </div>';
+            }
+        }
+    }
+    else {
+        echo "<p style=text-align:center top><b>  NO FRIENDS  </b></p>";
+    }
     ?>
   </div>
 </div>
