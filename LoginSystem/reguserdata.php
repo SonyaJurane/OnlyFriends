@@ -26,12 +26,13 @@ if($i == ''){
 $occupation = $_POST['occupation'];
 
 $sql="UPDATE Login SET Names='$name', LastName='$lastname', Gender='$gender', Preference='$findgender', City='$city', Age='$age',maxdistance='$maxdistance', maxage='$maxage', interests='$interestlist', occupation='$occupation' WHERE Username='$username'";
-if(mysqli_query($db, $sql) && $_SESSION['httpreferer'] == "https://onlyfriendspage.000webhostapp.com/signup.php"){
+echo $_SESSION['httpreferer'];
+if(mysqli_query($db, $sql) && $_SESSION['httpreferer'] == "https://onlyfriendspage.000webhostapp.com/LoginSystem/signup.php"){
     header("Location: login.php");
     mysqli_close($db);
     exit();
 }
-else if(mysqli_query($db, $sql) && $_SESSION['httpreferer'] == "https://onlyfriendspage.000webhostapp.com/profile.php"){
+else if(mysqli_query($db, $sql) && $_SESSION['httpreferer'] == "https://onlyfriendspage.000webhostapp.com/Login/System/profile.php"){
     header("Location: profile.php");
     mysqli_close($db);
     exit();

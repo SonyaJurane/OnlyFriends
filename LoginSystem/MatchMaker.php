@@ -20,7 +20,7 @@ $age = $row[10];
 $maxdistance = $row[11];
 $maxage = $row[12];
 $interest = $row[13];
-include 'distance.php';
+include '../distance.php';
 $matches = [];
 $highestrate = 0;
 $commandText = "SELECT * FROM Login WHERE Username != '$name'";

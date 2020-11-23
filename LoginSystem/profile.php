@@ -35,7 +35,7 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="">Find friends<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="./MatchMaker.php">Find friends<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="">Feed<span class="sr-only">(current)</span></a>
@@ -50,7 +50,7 @@ session_start();
             <a class="nav-link" href="">Direct Messages<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="">Profile<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="profile.php">Profile<span class="sr-only">(current)</span></a>
         </li>
         </ul>
     </div>
@@ -86,7 +86,9 @@ $bio = $row[17];
 echo "<br>";
 //profile picture
 if ($PFP == 'defaultpic.png'){
-    $PFP = 'ProfilePic/'.$PFP;
+    $PFP = '../ProfilePic/'.$PFP;
+}else{
+    $PFP = '../'.$PFP;
 }
 
 //echo "<img src='$PFP' class='rounded-circle' style='display: block; margin-left: auto;margin-right: auto;width:400px;height:400px;border: 2px solid black;'alt='profile'/>";

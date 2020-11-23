@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +22,7 @@ session_start();
 <div class="container">
 <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="">
-    <img src="navbar_logo.png" class="d-inline-block align-center" alt="Logo">
+    <img src="../navbar_logo.png" class="d-inline-block align-center" alt="Logo">
     Only Friends
     </a>
 
@@ -35,67 +33,36 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="./MatchMaker.php">Find friends<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">Feed<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">My friends<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">Public chat<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">Direct Messages<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="signup.php">Sign up <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="login.php">Log in <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="about.php">About us <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="profile.php">Profile<span class="sr-only">(current)</span></a>
         </li>
         </ul>
     </div>
 </nav>
 </div>
 
+<br><br><br>
 <div class="container">
 	<div class="row justify-content-center">
         <div class="col-sm-6">
-
-			<?php
-			$db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
-			if ($db -> connect_error) {
-				echo ("Failed to connect to MySQL: " . $db -> connect_error);
-				exit();
-			}
-			$commandText = "SELECT Message FROM Error";
-			$result = $db->query($commandText);
-			if (!is_null($row = mysqli_fetch_row($result))){
-					printf("<div class='error'>%s</div", $row[0]);
-					$db->query("DELETE FROM Error");
-				}
-			?>
-
 			<div class="jumbotron">
 
-				<h2 class="signup-h2">Sign up</h2>	
-
-				
-
-				<form name="form" method="post" action="register.php" onsubmit="return validateForm()">
-					<div class="form-group">
-						<label class="signup-label">Username</label>
-						<input type="text" name="username" minlength="4" maxlength="16" required>
-					</div>
-					<div class="form-group">
-						<label class="signup-label">Email</label>
-						<input type="email" name="email" >
-					</div>
-						<div class="form-group">
-						<label id="pw" class="signup-label">Password</label>
-						<input type="password" name="password"minlength="4" maxlength="16" required>
-					</div>
-					<div class="form-group">
-						<label class="signup-label">Confirm password</label>
-						<input type="password" name="password2" required>
-					</div>
-					<button type="submit" class="btn" name="reg_user">Register</button>
-					<p>Already a member? <a href="login.php">Sign in</a></p>			
-				</form>
-				
+                <div>We have ran out of matches, Click here to go back to your profile</div>
+                <a class="btn d-flex justify-content-center" style="background-color: #F1C21B !important;color: white !important" href="profile.php" role="button">Profile</a>
 			</div>
 
 		</div>

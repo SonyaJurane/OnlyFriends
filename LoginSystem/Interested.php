@@ -44,5 +44,5 @@ if(in_array($name,$friendmatcharray) && in_array($name,$friendarray) == false){
 
 }
 mysqli_close($db);
-header("Location: NextMatch.php")
+header("Location: LoginSystem/NextMatch.php")
 ?>
