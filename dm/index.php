@@ -12,6 +12,7 @@ session_start();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="../stylesheet.css">
     <link rel="stylesheet" href="chat.css">
 
     <?php
@@ -46,9 +47,9 @@ session_start();
                 //COMMENT BELOW THIS OUT IF WANT INSTANT MESSAGING
                 setInterval(function () {
                     load();
-                }, 1500); //1.5 seconds
+                //}, 1500); //1.5 seconds
                 //}, 1000000); //17 minutes
-                //}, 8000000 ); //3 hours
+                }, 8000000 ); //3 hours
                 //COMMENT ABOVE THIS OUT IF WANT INSTANT MESSAGING (It'll max out a free database quick tho)
                 
                 //This is just to send messages into chat, not actually print anything

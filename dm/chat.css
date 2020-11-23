@@ -21,6 +21,7 @@ table {
   border: 1px solid #dddddd;
 }
 th {
+  padding-top: 0px;
   border: 1px solid #dddddd;
   text-align: center;
   padding-right: 12px;
