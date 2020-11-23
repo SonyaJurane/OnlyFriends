@@ -185,6 +185,7 @@ session_start();
             <table>
                 <tr>
                     <?php
+                    if (count($friends) > 0) {
                         foreach($friends as $row){
                             $row = explode(' ',$row);
                             //print_r($row);
@@ -194,6 +195,10 @@ session_start();
                                 echo '</th>';
                             }
                         }
+                    }
+                    else {
+                        echo "<p style=text-align:center top><b>  NO FRIENDS  </b></p>";
+                    }
                     ?>
                 </tr>
             </table>
