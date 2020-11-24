@@ -81,35 +81,35 @@ session_start();
 <!--JavaScript: jQuery first, then Popper.js, then Bootstrap JS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 <!--Navigation bar (Menu)-->
 <div class="container">
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="">
+    <a class="navbar-brand" href="../LoginSystem/index.html">
     <img src="../navbar_logo.png" class="d-inline-block align-center" alt="Logo">
     Only Friends
     </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="">Find friends<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../LoginSystem/MatchMaker.php">Find friends<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">Feed<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../friends/friends.php">My friends<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">My friends<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../chat/index.php">Public chat<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">Public chat<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../dm/index.php">Direct Messages<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item chat">
-            <a class="nav-link" href="">Direct Messages<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">Profile<span class="sr-only">(current)</span></a>
+        <li class="nav-item active">
+            <a class="nav-link" href="../LoginSystem/profile.php">Profile<span class="sr-only">(current)</span></a>
         </li>
         </ul>
     </div>

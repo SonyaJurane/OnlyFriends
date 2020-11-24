@@ -12,7 +12,7 @@ if ($db -> connect_error) {
     exit();
 }
 // Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
+if(isset($_POST["submit"]) && $_FILES["fileToUpload"]["tmp_name"] != '') {
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
   if($check !== false) {
     $uploadOk = 1;
@@ -30,7 +30,7 @@ if (file_exists($target_file)) {
 if ($_FILES["fileToUpload"]["size"] > 800000) {
   echo "<script type='text/javascript'>
   alert('Sorry, your file is too large.');
-  window.location.href = '/profile.php'; 
+  window.location.href = 'http://only-friends.000webhostapp.com/LoginSystem/profile.php'; 
   </script>";
   $uploadOk = 0;
 }
@@ -43,15 +43,19 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
+    header("Location: profile.php");
+    exit();
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     $sql="UPDATE Login SET ProfilePic='$target_file' WHERE Username='$username'";
+    mysqli_query($db, $sql);
     if(mysqli_query($db, $sql)){
         header("Location: profile.php");
+        exit();
     } else{
         header("Location: profile.php");
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
+        exit();
     }
         mysqli_close($db);
   }

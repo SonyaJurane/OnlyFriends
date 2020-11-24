@@ -185,6 +185,7 @@ if($occupation == 'None'){
 <div class="row justify-content-center">
   <div class="col-sm-12">
     <div class="box-userdata">
+      <form name="form" method="post" action="reguserdata.php" onsubmit="return validateForm(event)">
       <div class="row">
         <div class="col-sm-12"><h2 class="h2-userdata">Create Profile</h2></div>
       </div>
@@ -199,7 +200,7 @@ if($occupation == 'None'){
             <?php echo'<div class="input-group"><input class="input-userdata" id="lastname" type="lastname" name="lastname" value="'.$LastName.'" required></div>'?>
             <p class="text-input">Location</p>
             <?php echo'<div class="input-group">
-            <form>
+
             <select id="city" name="city" required>
               <option value="" selected disabled hidden>Choose here</option>
               <option value="44.3894|79.6903|Barrie">Barrie</option>
@@ -255,7 +256,7 @@ if($occupation == 'None'){
               <option value="42.3149|83.0364|Windsor">Windsor</option>
               <option value="43.1315|80.7472|Woodstock">Woodstock</option>
             </select>
-            </form></div>'?>
+            </div>';?>
           </div>
           <div class="col-md-4">
             <p class="text-input">Occupation</p>
@@ -301,26 +302,30 @@ if($occupation == 'None'){
       </div>
       <div class="row">
         <div class="col-md-4">  
-            <div class="text-input">
+            <p class="text-input">
                 Someone <?php echo '<input class="small-input" type="number" id="maxage" name="maxage" min=10 value="'.$maxage.'" required>' ?> years old at most
-            </div> 
+            </p> 
         </div>
         <div class="col-md-4">
-            <div class="text-input">
-                Preferably less than <?php echo '<input class="small-input" type="number" id="maxdistance" name="maxdistance" min=0 value="'.$maxdistance.'" required' ?> km away
-            </div> 
+            <p class="text-input">
+                Preferably less than <?php echo '<input class="small-input" type="number" id="maxdistance" name="maxdistance" min=0 value="'.$maxdistance.'" required>'?> km away
+            </p>
         </div>
         <div class="col-md-4">
-            <div class="text-input">
-                Who is <?php echo '<select id="gender" name="gender" required>
-                <option id="findmale" name="findgender" value="male">Male</option>
-                <option id="findfemale" name="findgender" value="female">Female</option>
-                <option vid="findboth" name="findgender" value="both">Any gender</option>
-                </select>'?>
-            </div> 
+            <div class="radiobutton"style="width:140px">
+                <input type="radio" id="findmale" name="findgender" value="male" required>
+                <label for="findmale">Male Friends</label><br>
+                <input type="radio" id="findfemale" name="findgender" value="female">
+                <label for="findfemale">Female Friends</label><br>
+                <input type="radio" id="findboth" name="findgender" value="both">
+                <label for="findboth">Any Friends</label><br>
+            </div>
         </div>
-
       </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-12 text-center"><button type="submit" class="btn btn-userdata" name="reg_user">Sign up</button></div>
+      </div>
+      </form>
     </div>
   </div>
 </div>

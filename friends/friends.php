@@ -20,10 +20,11 @@ session_start();
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
+
 <!--Navigation bar (Menu)-->
 <div class="container">
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="">
+    <a class="navbar-brand" href="../LoginSystem/index.html">
     <img src="../navbar_logo.png" class="d-inline-block align-center" alt="Logo">
     Only Friends
     </a>
@@ -35,28 +36,24 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="./MatchMaker.php">Find friends<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../LoginSystem/MatchMaker.php">Find friends<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">Feed<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../friends/friends.php">My friends<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">My friends<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../chat/index.php">Public chat<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">Public chat<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">Direct Messages<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../dm/index.php">Direct Messages<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="profile.php">Profile<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../LoginSystem/profile.php">Profile<span class="sr-only">(current)</span></a>
         </li>
         </ul>
     </div>
 </nav>
 </div>
-
 
 <?php
 $username = $_SESSION["username"];
@@ -116,10 +113,10 @@ $friends = array_filter($friends);
             <div class="box-profile">
               <div class="row"> 
                 <div class="col-md-4 col-12" align="center">';
-                  echo "<img src='$PFP' style='object-fit: cover;'class='profilepic'/>
+                  echo "<img src='$PFP' style='object-fit: cover;border: 1px solid black;'class='profilepic'/>
                 </div>
                 <div class='col-md-8 col-12'>";
-                   echo "<td><h2 class='h2-profile'>$Name $LastName</h2></td></tr>";
+                   echo "<td><h2 class='h2-profile'>$Name $LastName ($user)</h2></td></tr>";
                   echo '<table>
                     <tr>
                       <td class="category">Likes</td>
@@ -156,7 +153,7 @@ $friends = array_filter($friends);
         }
     }
     else {
-        echo "<p style=text-align:center top><b>  NO FRIENDS  </b></p>";
+        echo "<p style=text-align:center><b>  NO FRIENDS  </b></p>";
     }
     ?>
   </div>

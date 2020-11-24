@@ -143,6 +143,16 @@ form,
     margin-bottom: 20px;
     } */
 
+/* Log in */
+.box-login {
+    padding: 50px;
+    margin-top: 50px;
+    background: #E9E9E9;
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.15);   
+    border-radius: 9px;
+}
+
+
 /* About us */
 .img-aboutus {
     height: 200px;
@@ -329,8 +339,25 @@ th, td {
 .small-input {
     width:50px;
 }
-.td-userdata {
+td.userdata {
     vertical-align:top; 
+}
+.btn-userdata {
+    width: 134px;
+    height: 55px;
+    background: #F1C21B;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.105em;
+    text-transform: uppercase;
+    margin-top: 50px;
+    color: #FFFFFF;
 }
 
 
@@ -424,16 +451,7 @@ th, td {
     padding-left:20px;
     padding-right:20px;
 }
-    
+
 .navbar-brand > img{
     padding-right:20px;
-}
-
-/* Friend List */
-textarea#friends {
-    max-width:95%;
-    resize: none;
-    background: #FFF;
-    color: #000;
-
 }
