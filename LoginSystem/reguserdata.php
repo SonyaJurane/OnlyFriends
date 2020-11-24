@@ -4,7 +4,7 @@ ob_start();
 ?>
 <?php
 $username = $_SESSION['username'];
-$db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
+$db = new mysqli("localhost", "id15483164_memberdb","@NV(G4!f0KbtMO/<","id15483164_members");
 if ($db -> connect_error) {
     echo ("Failed to connect to MySQL: " . $db -> connect_error);
     exit();
@@ -27,12 +27,13 @@ $occupation = $_POST['occupation'];
 
 $sql="UPDATE Login SET Names='$name', LastName='$lastname', Gender='$gender', Preference='$findgender', City='$city', Age='$age',maxdistance='$maxdistance', maxage='$maxage', interests='$interestlist', occupation='$occupation' WHERE Username='$username'";
 echo $_SESSION['httpreferer'];
-if(mysqli_query($db, $sql) && $_SESSION['httpreferer'] == "https://onlyfriendspage.000webhostapp.com/LoginSystem/signup.php"){
+if(mysqli_query($db, $sql) && $_SESSION['httpreferer'] == "http://only-friends.000webhostapp.com/LoginSystem/signup.php"){
     header("Location: login.php");
     mysqli_close($db);
     exit();
 }
-else if(mysqli_query($db, $sql) && $_SESSION['httpreferer'] == "https://onlyfriendspage.000webhostapp.com/Login/System/profile.php"){
+else if(mysqli_query($db, $sql) && $_SESSION['httpreferer'] == "http://only-friends.000webhostapp.com/LoginSystem/profile.php"){
+
     header("Location: profile.php");
     mysqli_close($db);
     exit();

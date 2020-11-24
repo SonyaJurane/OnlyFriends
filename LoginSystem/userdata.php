@@ -21,7 +21,7 @@ session_start();
 
 <?php
 $_SESSION['httpreferer'] = $_SERVER['HTTP_REFERER'];
-$db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
+$db = new mysqli("localhost", "id15483164_memberdb","@NV(G4!f0KbtMO/<","id15483164_members");
 if ($db -> connect_error) {
     echo ("Failed to connect to MySQL: " . $db -> connect_error);
     exit();
@@ -200,7 +200,7 @@ if($occupation == 'None'){
             <?php echo'<div class="input-group"><input class="input-userdata" id="lastname" type="lastname" name="lastname" value="'.$LastName.'" required></div>'?>
             <p class="text-input">Location</p>
             <?php echo'<div class="input-group">
-            <form>
+
             <select id="city" name="city" required>
               <option value="" selected disabled hidden>Choose here</option>
               <option value="44.3894|79.6903|Barrie">Barrie</option>
@@ -256,7 +256,7 @@ if($occupation == 'None'){
               <option value="42.3149|83.0364|Windsor">Windsor</option>
               <option value="43.1315|80.7472|Woodstock">Woodstock</option>
             </select>
-            </form></div>'?>
+            </div>';?>
           </div>
           <div class="col-md-4">
             <p class="text-input">Occupation</p>
@@ -303,12 +303,12 @@ if($occupation == 'None'){
       <div class="row">
         <div class="col-md-4">  
             <p class="text-input">
-                Someone <?php echo '<input class="small-input" type="number" id="maxage" name="maxage" min=10 value="'.$maxage.'" required>'; ?> years old at most
+                Someone <?php echo '<input class="small-input" type="number" id="maxage" name="maxage" min=10 value="'.$maxage.'" required>' ?> years old at most
             </p> 
         </div>
         <div class="col-md-4">
             <p class="text-input">
-                Preferably less than <?php echo '<input class="small-input" type="number" id="maxdistance" name="maxdistance" min=0 value="'.$maxdistance.'" required>'; ?> km away
+                Preferably less than <?php echo '<input class="small-input" type="number" id="maxdistance" name="maxdistance" min=0 value="'.$maxdistance.'" required>' ?> km away
             </p>
         </div>
         <div class="col-md-4">

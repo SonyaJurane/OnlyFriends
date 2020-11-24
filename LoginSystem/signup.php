@@ -3,15 +3,18 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html>
+<style>
+    HTML, BODY { height: 100%; }
+</style>
 <head>
-	<title>Register</title>
+	<title>Sign Up</title>
 	<script type="text/javascript" src="passverify.js"></script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-	<link rel="stylesheet" href="stylesheet.css">
+	<link rel="stylesheet" href="../stylesheet.css">
 </head>
 <body class="bg-homepage">
 <!--JavaScript: jQuery first, then Popper.js, then Bootstrap JS-->
@@ -23,7 +26,7 @@ session_start();
 <!--Navigation bar (Menu)-->
 <div class="container">
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="">
+    <a class="navbar-brand" href="index.html">
     <img src="navbar_logo.png" class="d-inline-block align-center" alt="Logo">
     Only Friends
     </a>
@@ -35,7 +38,7 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
             <a class="nav-link" href="signup.php">Sign up <span class="sr-only">(current)</span></a>
@@ -44,19 +47,19 @@ session_start();
             <a class="nav-link" href="login.php">Log in <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="about.php">About us <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../aboutus/aboutus.html">About us <span class="sr-only">(current)</span></a>
         </li>
         </ul>
     </div>
 </nav>
 </div>
-
+<br><br>
 <div class="container">
 	<div class="row justify-content-center">
         <div class="col-sm-6">
 
 			<?php
-			$db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
+			$db = new mysqli("localhost", "id15483164_memberdb","@NV(G4!f0KbtMO/<","id15483164_members");
 			if ($db -> connect_error) {
 				echo ("Failed to connect to MySQL: " . $db -> connect_error);
 				exit();
@@ -69,31 +72,31 @@ session_start();
 				}
 			?>
 
-			<div class="jumbotron">
+			<div class="jumbotron"style="text-align:center;">
 
 				<h2 class="signup-h2">Sign up</h2>	
 
-				
-
 				<form name="form" method="post" action="register.php" onsubmit="return validateForm()">
 					<div class="form-group">
-						<label class="signup-label">Username</label>
+						<label class="signup-label">Username</label><br>
 						<input type="text" name="username" minlength="4" maxlength="16" required>
 					</div>
 					<div class="form-group">
-						<label class="signup-label">Email</label>
+						<label class="signup-label">Email</label><br>
 						<input type="email" name="email" >
 					</div>
 						<div class="form-group">
-						<label id="pw" class="signup-label">Password</label>
+						<label id="pw" class="signup-label">Password</label><br>
 						<input type="password" name="password"minlength="4" maxlength="16" required>
 					</div>
 					<div class="form-group">
-						<label class="signup-label">Confirm password</label>
+						<label class="signup-label">Confirm password</label><br>
 						<input type="password" name="password2" required>
 					</div>
-					<button type="submit" class="btn" name="reg_user">Register</button>
-					<p>Already a member? <a href="login.php">Sign in</a></p>			
+					<br>
+					<button type="submit"style="background-color:#F1C21B; !important" class="btn" name="reg_user">Register</button>
+					<br><br>
+					<p style="text-align:center">Already a member? <a href="login.php">Sign in</a></p>			
 				</form>
 				
 			</div>

@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-    <title>Profile</title>
+    <title>Match</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -20,10 +20,11 @@ session_start();
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
+
 <!--Navigation bar (Menu)-->
 <div class="container">
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="">
+    <a class="navbar-brand" href="index.html">
     <img src="../navbar_logo.png" class="d-inline-block align-center" alt="Logo">
     Only Friends
     </a>
@@ -35,19 +36,16 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="./MatchMaker.php">Find friends<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="MatchMaker.php">Find friends<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">Feed<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../friends/friends.php">My friends<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">My friends<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../chat/index.php">Public chat<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">Public chat<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">Direct Messages<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../dm/index.php">Direct Messages<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
             <a class="nav-link" href="profile.php">Profile<span class="sr-only">(current)</span></a>
@@ -64,7 +62,7 @@ $order = $_SESSION["order"];
 $rating = $_SESSION["rating"];
 
 $match = $matches[$rating][$order];
-$db = new mysqli("localhost", "id15345354_memberdb","CPS530Group123-","id15345354_members");
+$db = new mysqli("localhost", "id15483164_memberdb","@NV(G4!f0KbtMO/<","id15483164_members");
 if ($db -> connect_error) {
     echo ("Failed to connect to MySQL: " . $db -> connect_error);
     exit();
@@ -108,7 +106,7 @@ if ($PFP == 'defaultpic.png'){
     <div class="box-profile">
       <div class="row"> 
         <div class="col-md-4 col-12" align="center">
-          <?php echo "<img src='$PFP' style='object-fit: cover;'class='profilepic'/>"; ?>
+          <?php echo "<img src='$PFP' style='object-fit: cover;border: 1px solid black;'class='profilepic'/>"; ?>
         </div>
         <div class="col-md-8 col-12">
           <?php echo "<h2 class='h2-profile'>$Name $LastName</h2>"; ?>
@@ -146,7 +144,7 @@ if ($PFP == 'defaultpic.png'){
           ?>
             <br><br>
             <a class="btn btn-danger" style="margin-right: 15px;line-height: 40px; width: 160px"href="NextMatch.php" role="button">NEXT</a>
-            <a class="btn btn-success" style="line-height: 40px; width: 160px" href="../Interested.php" role="button">Interested</a>
+            <a class="btn btn-success" style="line-height: 40px; width: 160px" href="Interested.php" role="button">Interested</a>
 
 
         </div>

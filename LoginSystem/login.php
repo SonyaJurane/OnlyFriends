@@ -8,6 +8,9 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 	<link rel="stylesheet" href="../stylesheet.css">
+<style>
+    HTML, BODY { height: 100%; }
+</style>
 </head>
 <body class="bg-homepage">
 <!--JavaScript: jQuery first, then Popper.js, then Bootstrap JS-->
@@ -56,7 +59,7 @@
 <!--Navigation bar (Menu)-->
 <div class="container">
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="">
+    <a class="navbar-brand" href="index.html">
     <img src="navbar_logo.png" class="d-inline-block align-center" alt="Logo">
     Only Friends
     </a>
@@ -77,13 +80,13 @@
             <a class="nav-link" href="login.php">Log in <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="about.php">About us <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../aboutus/aboutus.html">About us <span class="sr-only">(current)</span></a>
         </li>
         </ul>
     </div>
 </nav>
 </div>
-
+<br><br>
 <div class="container">
 <div class="row justify-content-center">
 	<div class="col-auto">
@@ -108,18 +111,20 @@
 			?>		
 
 			<form method="post" action="validation.php">
-				<div class="input-group">
-					<label class="text-input">Username</label>
-					<div><input type="text" name="username"></div>
+				<div class="form-group">
+					<label class="text-input">Username</label><br>
+					<input type="text"style='width:225px' name="username">
 				</div>
-				<div class="input-group">
-					<label class="text-input">Password</label>
-					<div><input type="password" name="password"></div>
+				<div class="form-group">
+					<label class="text-input">Password</label><br>
+					<input type="password"style='width:225px' name="password">
 				</div>
-				<div class="input-group text-center">
-					<button type="submit" class="btn" name="reg_user">Login</button>
+				<br>
+				<div class="form-group text-center">
+					<button type="submit" style="background-color:#F1C21B; !important" class="btn" name="reg_user">Login</button>
 				</div>
-				<p>Make an account:<a href="index.php">Sign Up</a></p>
+				<br>
+				<p style="text-align:center">Make an account: <a href="http://only-friends.000webhostapp.com/LoginSystem/signup.php">Sign Up</a></p>
 			</form>
 		</div>
 	</div>
