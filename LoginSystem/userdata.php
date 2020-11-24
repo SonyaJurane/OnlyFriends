@@ -185,6 +185,7 @@ if($occupation == 'None'){
 <div class="row justify-content-center">
   <div class="col-sm-12">
     <div class="box-userdata">
+      <form name="form" method="post" action="reguserdata.php" onsubmit="return validateForm(event)">
       <div class="row">
         <div class="col-sm-12"><h2 class="h2-userdata">Create Profile</h2></div>
       </div>
@@ -301,26 +302,29 @@ if($occupation == 'None'){
       </div>
       <div class="row">
         <div class="col-md-4">  
-            <div class="text-input">
-                Someone <?php echo '<input class="small-input" type="number" id="maxage" name="maxage" min=10 value="'.$maxage.'" required>' ?> years old at most
-            </div> 
+            <p class="text-input">
+                Someone <?php echo '<input class="small-input" type="number" id="maxage" name="maxage" min=10 value="'.$maxage.'" required>'; ?> years old at most
+            </p> 
         </div>
         <div class="col-md-4">
-            <div class="text-input">
-                Preferably less than <?php echo '<input class="small-input" type="number" id="maxdistance" name="maxdistance" min=0 value="'.$maxdistance.'" required' ?> km away
-            </div> 
+            <p class="text-input">
+                Preferably less than <?php echo '<input class="small-input" type="number" id="maxdistance" name="maxdistance" min=0 value="'.$maxdistance.'" required>'; ?> km away
+            </p>
         </div>
         <div class="col-md-4">
-            <div class="text-input">
+            <p class="text-input">
                 Who is <?php echo '<select id="gender" name="gender" required>
                 <option id="findmale" name="findgender" value="male">Male</option>
                 <option id="findfemale" name="findgender" value="female">Female</option>
                 <option vid="findboth" name="findgender" value="both">Any gender</option>
-                </select>'?>
-            </div> 
+                </select>'; ?>
+            </p> 
         </div>
-
       </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-12 text-center"><button type="submit" class="btn btn-userdata" name="reg_user">Submit</button></div>
+      </div>
+      </form>
     </div>
   </div>
 </div>
