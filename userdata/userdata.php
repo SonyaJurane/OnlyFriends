@@ -24,7 +24,7 @@ session_start();
   <?php
   //Get where user came from
   $_SESSION['httpreferer'] = $_SERVER['HTTP_REFERER'];
-  $db = new mysqli("localhost", "d46wang", "NobJoov5", "d46wang");
+  $db = mysqli_connect("localhost", "dbusername", "dbpassword", "dbname");
   if ($db->connect_error) {
     echo ("Failed to connect to MySQL: " . $db->connect_error);
     exit();

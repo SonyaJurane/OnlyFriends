@@ -2,7 +2,7 @@
 session_start();
 
 //Getting messages from database
-$db = new mysqli("localhost", "d46wang", "NobJoov5", "d46wang");
+$db = mysqli_connect("localhost", "dbusername", "dbpassword", "dbname");
 if ($db->connect_error) {
     die("Connection Failed: " . $db->connect_error);
 }

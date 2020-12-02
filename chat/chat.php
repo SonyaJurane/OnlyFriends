@@ -18,7 +18,7 @@ session_start();
     <?php
     //Getting user session from database
     $username = $_SESSION["username"];
-    $db = new mysqli("localhost", "d46wang", "NobJoov5", "d46wang");
+    $db = mysqli_connect("localhost", "dbusername", "dbpassword", "dbname");
     if ($db->connect_error) {
         echo ("Failed to connect to MySQL: " . $db->connect_error);
         exit();

@@ -1,4 +1,5 @@
 <?php
+// based code off https://www.w3schools.com/php/php_file_upload.asp
 session_start();
 $target_dir = "../img/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -7,7 +8,7 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 $username = $_SESSION['username'];
-$db = new mysqli("localhost", "d46wang","NobJoov5","d46wang");
+$db = new mysqli("localhost", "my_user", "my_password", "my_db");
 if ($db -> connect_error) {
     echo ("Failed to connect to MySQL: " . $db -> connect_error);
     exit();

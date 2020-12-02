@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$db = new mysqli("localhost", "d46wang","NobJoov5","d46wang");
+$db = new mysqli("localhost", "my_user", "my_password", "my_db");
 if ($db -> connect_error) {
     echo ("Failed to connect to MySQL: " . $db -> connect_error);
     exit();

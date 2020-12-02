@@ -27,7 +27,7 @@
 <div class=corners1>
 	<h2>Login</h2>		
 	<?php
-    $db = new mysqli("localhost", "d46wang", "NobJoov5", "d46wang");
+    $db = mysqli_connect("localhost", "dbusername", "dbpassword", "dbname");
     if ($db->connect_error) {
         echo ("Failed to connect to MySQL: " . $db->connect_error);
         exit();
@@ -98,7 +98,7 @@
                 <div class="box-login">
                     <h2 class="h2-userdata">Log in</h2>
                     <?php
-                    $db = new mysqli("localhost", "d46wang", "NobJoov5", "d46wang");
+                    $db = mysqli_connect("localhost", "dbusername", "dbpassword", "dbname");
                     if ($db->connect_error) {
                         echo ("Failed to connect to MySQL: " . $db->connect_error);
                         exit();
