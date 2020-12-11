@@ -64,7 +64,7 @@
     <!--Navigation bar (Menu)-->
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href=".../index.html">
                 <img src="../img/navbar_logo.png" class="d-inline-block align-center" alt="Logo">
                 Only Friends
             </a>
